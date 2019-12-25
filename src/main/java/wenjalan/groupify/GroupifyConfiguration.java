@@ -15,4 +15,9 @@ public class GroupifyConfiguration {
         REDIRECT_URI = redirectUri;
     }
 
+    @Override
+    public String toString() {
+        return "CLIENT_ID=" + CLIENT_ID + ",CLIENT_SECRET=" + CLIENT_SECRET + ",REDIRECT_URI=" + REDIRECT_URI;
+    }
+
 }
