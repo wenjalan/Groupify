@@ -4,10 +4,11 @@ import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.credentials.AuthorizationCodeCredentials;
 import com.wrapper.spotify.model_objects.specification.Artist;
+import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.model_objects.specification.Track;
+import com.wrapper.spotify.model_objects.specification.User;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeRequest;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
-import javafx.scene.effect.Light;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
@@ -15,16 +16,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
 // main program entry point
 public class Groupify {
 
-    // the Map of User IDs to their authentication codes
-    protected Set<User> users = new HashSet<>();
+    // the Host user
+    protected User host = null;
+
+    // the Map of GroupifyUser IDs to their authentication codes
+    protected Set<GroupifyUser> users = new HashSet<>();
 
     // the Groupify properties file name
     public static final String PROPERTIES_FILE = "groupify.properties";
@@ -62,13 +66,86 @@ public class Groupify {
         requestAuthentication(SCOPES);
     }
 
+    // creates a new Playlist based off of all the users in the current pool
+    // how songs are selected:
+    // 1. a top song is a shared by all users
+    // 2. a top song's artist is a top artist of all users
+    // 3. a top song's artist is of a top genre for all users
+    public Playlist createPlaylist() {
+        try {
+            // create the playlist
+            Playlist playlist = this.spotify.createPlaylist(host.getId(), "Groupify Playlist")
+                    .collaborative(false)
+                    .description("Created with Groupify, a Spotify helper app for people with friends.")
+                    .build()
+                    .execute();
+            String playlistId = playlist.getId();
+
+            // the list of songs
+            List<Track> songs = new ArrayList<>();
+
+            // 1. find top songs shared by all users
+            List<Track> sharedTopSongs = getSharedTopSongs(users);
+            songs.addAll(sharedTopSongs);
+
+            // 2. find top songs whose artist is a top artist of all users
+            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users);
+            songs.addAll(sharedArtistSongs);
+
+            // 3. find top songs whose artist has genres shared by all users
+            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users);
+            songs.addAll(sharedGenreSongs);
+
+            // adds the songs to the playlist
+            String[] uris = getUris(songs);
+            this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
+
+            // print to console
+            System.out.println("> created Groupify playlist with id " + playlistId);
+
+            // return the playlist
+            return playlist;
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("!!! error generating the Groupify playlist: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // returns the shared top songs of a Set of GroupifyUsers
+    public static List<Track> getSharedTopSongs(Set<GroupifyUser> users) {
+        // TODO: this
+        return null;
+    }
+
+    // returns the top songs of a Set of GroupifyUsers whose artist is a top artist for all users
+    public static List<Track> getSharedTopArtistsSongs(Set<GroupifyUser> users) {
+        // TODO: this
+        return null;
+    }
+
+    // returns the top songs of a set of GroupifyUsers whose artist contains genres which are top genres for all users
+    public static List<Track> getSharedTopGenresSongs(Set<GroupifyUser> users) {
+        // TODO: this
+        return null;
+    }
+
+    // returns an array of URIs given a list of tracks
+    private String[] getUris(List<Track> tracks) {
+        String[] uris = new String[tracks.size()];
+        for (int i = 0; i < tracks.size(); i++) {
+            uris[i] = tracks.get(i).getUri();
+        }
+        return uris;
+    }
+
     // adds a new user to the group
     public void addNewUser() {
         requestAuthentication(SCOPES);
     }
 
     // returns the users in the current group
-    public Set<User> getUsers() {
+    public Set<GroupifyUser> getUsers() {
         return this.users;
     }
 
@@ -116,8 +193,8 @@ public class Groupify {
             throw new IllegalStateException("api instance is null");
         }
 
-        // create a new User object representing this user
-        User user = new User(code);
+        // create a new GroupifyUser object representing this user
+        GroupifyUser user = new GroupifyUser(code);
 
         // if this is the first user, make them the host
         if (users.isEmpty()) {
@@ -142,6 +219,11 @@ public class Groupify {
             // top artists
             Artist[] topArtists = this.spotify.getUsersTopArtists().build().execute().getItems();
             user.setTopArtists(topArtists);
+
+            // if this guy is the host, set them as such
+            if (user.isHost()) {
+                this.host = spotify.getCurrentUsersProfile().build().execute();
+            }
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("! error gathering user info");
             e.printStackTrace();
@@ -152,7 +234,7 @@ public class Groupify {
     }
 
     // switches the API's current user to a given user id
-    protected void switchToUser(User user) {
+    protected void switchToUser(GroupifyUser user) {
         if (!this.users.contains(user)) {
             throw new IllegalArgumentException("user " + user.getUserId() + " is not recognized");
         }

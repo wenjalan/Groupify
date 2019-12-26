@@ -6,9 +6,9 @@ import com.wrapper.spotify.model_objects.specification.Track;
 import java.util.*;
 
 // represents a specific user's taste in music
-public class User {
+public class GroupifyUser {
 
-    // whether or not this User is the host
+    // whether or not this GroupifyUser is the host
     private boolean isHost;
 
     // the authorization code of this user
@@ -18,22 +18,22 @@ public class User {
     private String userId;
 
     // this user's top tracks
-    private Track[] topTracks;
+    private List<Track> topTracks;
 
     // this user's top artists
-    private Artist[] topArtists;
+    private List<Artist> topArtists;
 
     // this user's top genres, based on both their top artists
     // lower index means greater affinity
     private List<String> topGenres = null;
 
     // constructor: user
-    public User(String authCode) {
+    public GroupifyUser(String authCode) {
         this.authCode = authCode;
     }
 
     // returns the top genres of a user given their top artists
-    protected List<String> generateTopGenres(Artist[] topArtists) {
+    protected List<String> generateTopGenres(List<Artist> topArtists) {
         // create a map of genres to their occurrences
         Map<String, Integer> genres = new TreeMap<>();
 
@@ -82,20 +82,20 @@ public class User {
 
     // topTracks
     public Track[] getTopTracks() {
-        return topTracks;
+        return topTracks.toArray(new Track[0]);
     }
 
     public void setTopTracks(Track[] topTracks) {
-        this.topTracks = topTracks;
+        this.topTracks = Arrays.asList(topTracks);
     }
 
     // topArtists
     public Artist[] getTopArtists() {
-        return topArtists;
+        return topArtists.toArray(new Artist[0]);
     }
 
     public void setTopArtists(Artist[] topArtists) {
-        this.topArtists = topArtists;
+        this.topArtists = Arrays.asList(topArtists);
     }
 
     // topGenres
@@ -106,7 +106,7 @@ public class User {
         return topGenres;
     }
 
-    // returns whether or not this User is the host
+    // returns whether or not this GroupifyUser is the host
     public boolean isHost() {
         return this.isHost;
     }
@@ -119,6 +119,21 @@ public class User {
     // returns the auth code of this user
     public String getAuthCode() {
         return this.authCode;
+    }
+
+    // returns whether or not a track is a top track of this user
+    public boolean isTopTrack(Track track) {
+        return this.topTracks.contains(track);
+    }
+
+    // returns whether or not an artist is a top artist of this user
+    public boolean isTopArtist(Artist artist) {
+        return this.topArtists.contains(artist);
+    }
+
+    // returns whether or not a genre is a top genre of this user
+    public boolean isTopGenre(String genre) {
+        return this.topGenres.contains(genre);
     }
 
     // toString
