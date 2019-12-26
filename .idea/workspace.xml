@@ -4,7 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyCallback.java" line="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="" />
+    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/Groupify.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/Groupify.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/GroupifyConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/GroupifyConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -24,14 +30,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="122" column="21" lean-forward="true" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
+            <state relative-caret-position="228">
+              <caret line="278" column="82" selection-start-line="278" selection-start-column="82" selection-end-line="278" selection-end-column="82" />
               <folding>
                 <element signature="method#Groupify#1;class#Groupify#0" />
-                <element signature="e#5372#5373#0" expanded="true" />
-                <element signature="e#5494#5495#0" expanded="true" />
+                <element signature="e#6955#6956#0" expanded="true" />
+                <element signature="e#7077#7078#0" expanded="true" />
                 <element signature="method#printAuthUri#0;class#Groupify#0" />
-                <element signature="method#switchToUser#0;class#Groupify#0" />
                 <element signature="method#getConfigFromFile#0;class#Groupify#0" />
               </folding>
             </state>
@@ -41,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+            <state relative-caret-position="442">
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,28 +56,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1966">
+            <state relative-caret-position="912">
               <caret line="135" column="46" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2347#2348#0" expanded="true" />
-                <element signature="e#2376#2377#0" expanded="true" />
-                <element signature="e#2542#2543#0" expanded="true" />
-                <element signature="e#2608#2609#0" expanded="true" />
-                <element signature="e#2647#2648#0" expanded="true" />
-                <element signature="e#2695#2696#0" expanded="true" />
-                <element signature="e#2692#2693#0" expanded="true" />
-                <element signature="e#2725#2726#0" expanded="true" />
-                <element signature="e#2871#2872#0" expanded="true" />
-                <element signature="e#2920#2921#0" expanded="true" />
                 <element signature="e#3582#3583#0" expanded="true" />
-                <element signature="e#3629#3630#0" expanded="true" />
-                <element signature="e#3757#3758#0" expanded="true" />
-                <element signature="e#3817#3818#0" expanded="true" />
-                <element signature="e#3925#3926#0" expanded="true" />
-                <element signature="e#3972#3973#0" expanded="true" />
+                <element signature="e#3635#3636#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,16 +111,16 @@
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyConfigurationException.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyCallback.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/groupify.properties" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Taste.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/groupify.properties" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1272" />
     <option name="width" value="1297" />
     <option name="height" value="1398" />
@@ -133,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,7 +179,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,6 +193,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GitHub\Groupify\src\main\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -254,17 +259,18 @@
       <updated>1577219756201</updated>
       <workItem from="1577219758669" duration="8847000" />
       <workItem from="1577232964442" duration="9141000" />
+      <workItem from="1577390630210" duration="1936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20390000" />
+    <option name="totallyTimeSpent" value="22326000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="1018" y="0" width="1037" height="1118" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12437563" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2569089" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -272,11 +278,10 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run Dashboard" weight="0.32997987" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5176471" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985294" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5162272" />
+      <window_info anchor="bottom" x="1025" y="30" width="1023" height="1081" id="Debug" order="3" weight="0.4016227" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -289,6 +294,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.32997987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -330,7 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties" />
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyCallback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -341,13 +346,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/se.michaelthelin.spotify/spotify-web-api-java/4.2.1/6e14936557874e9081454ebe3589eb7bbf0d0c75/spotify-web-api-java-4.2.1-sources.jar!/com/wrapper/spotify/model_objects/specification/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -358,49 +360,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/se.michaelthelin.spotify/spotify-web-api-java/4.2.1/6e14936557874e9081454ebe3589eb7bbf0d0c75/spotify-web-api-java-4.2.1-sources.jar!/com/wrapper/spotify/model_objects/specification/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        <state relative-caret-position="34">
+          <caret line="2" column="51" lean-forward="true" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1966">
+        <state relative-caret-position="912">
           <caret line="135" column="46" selection-start-line="135" selection-start-column="46" selection-end-line="135" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
-            <element signature="e#2376#2377#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
-            <element signature="e#2608#2609#0" expanded="true" />
-            <element signature="e#2647#2648#0" expanded="true" />
-            <element signature="e#2695#2696#0" expanded="true" />
-            <element signature="e#2692#2693#0" expanded="true" />
-            <element signature="e#2725#2726#0" expanded="true" />
-            <element signature="e#2871#2872#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
             <element signature="e#3582#3583#0" expanded="true" />
-            <element signature="e#3629#3630#0" expanded="true" />
-            <element signature="e#3757#3758#0" expanded="true" />
-            <element signature="e#3817#3818#0" expanded="true" />
-            <element signature="e#3925#3926#0" expanded="true" />
-            <element signature="e#3972#3973#0" expanded="true" />
+            <element signature="e#3635#3636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="122" column="21" lean-forward="true" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
+        <state relative-caret-position="228">
+          <caret line="278" column="82" selection-start-line="278" selection-start-column="82" selection-end-line="278" selection-end-column="82" />
           <folding>
             <element signature="method#Groupify#1;class#Groupify#0" />
-            <element signature="e#5372#5373#0" expanded="true" />
-            <element signature="e#5494#5495#0" expanded="true" />
+            <element signature="e#6955#6956#0" expanded="true" />
+            <element signature="e#7077#7078#0" expanded="true" />
             <element signature="method#printAuthUri#0;class#Groupify#0" />
-            <element signature="method#switchToUser#0;class#Groupify#0" />
             <element signature="method#getConfigFromFile#0;class#Groupify#0" />
           </folding>
         </state>

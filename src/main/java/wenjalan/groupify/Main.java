@@ -23,6 +23,9 @@ public class Main {
         // print out all the users
         System.out.println(g.getUsers());
 
+        // create the playlist
+        g.createPlaylist();
+
         // stop Spring web service
         SpringApplication.exit(c, () -> 0);
     }

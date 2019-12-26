@@ -16,16 +16,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 // main program entry point
 public class Groupify {
 
     // the Host user
     protected User host = null;
+
+    // the GroupifyUser host
+    protected GroupifyUser groupifyHost = null;
 
     // the Map of GroupifyUser IDs to their authentication codes
     protected Set<GroupifyUser> users = new HashSet<>();
@@ -39,8 +39,8 @@ public class Groupify {
     // the scopes we're using
     public static final String[] SCOPES = {
             "playlist-modify-public ",
-            "playlist-read-collaborative ",
-            "playlist-read-private ",
+//            "playlist-read-collaborative ",
+//            "playlist-read-private ",
             "playlist-modify-private",
             "user-top-read",
             "user-read-recently-played"
@@ -72,6 +72,8 @@ public class Groupify {
     // 2. a top song's artist is a top artist of all users
     // 3. a top song's artist is of a top genre for all users
     public Playlist createPlaylist() {
+        // swap to the host's context
+        switchToUser(this.groupifyHost);
         try {
             // create the playlist
             Playlist playlist = this.spotify.createPlaylist(host.getId(), "Groupify Playlist")
@@ -85,7 +87,7 @@ public class Groupify {
             List<Track> songs = new ArrayList<>();
 
             // 1. find top songs shared by all users
-            List<Track> sharedTopSongs = getSharedTopSongs(users);
+            List<Track> sharedTopSongs = getSharedTopSongs(users, users.size());
             songs.addAll(sharedTopSongs);
 
             // 2. find top songs whose artist is a top artist of all users
@@ -113,21 +115,55 @@ public class Groupify {
     }
 
     // returns the shared top songs of a Set of GroupifyUsers
-    public static List<Track> getSharedTopSongs(Set<GroupifyUser> users) {
-        // TODO: this
-        return null;
+    // threshold: the number of users that must have a song in their top tracks for it to be considered
+    public static List<Track> getSharedTopSongs(Set<GroupifyUser> users, int threshold) {
+        // keep track of all the songs we've seen (so we don't call the API more times than we have to)
+        Map<String, Track> trackLibrary = new HashMap<>();
+
+        // keep track of songs that everyone has
+        List<Track> sharedSongs = new ArrayList<>();
+
+        // map everyone's songs to their occurrences
+        Map<String, Integer> trackOccurrences = new HashMap<>();
+        for (GroupifyUser user : users) {
+            // get their top tracks
+            Track[] topTracks = user.getTopTracks();
+            for (Track t : topTracks) {
+                String id = t.getId();
+                if (!trackOccurrences.containsKey(id)) {
+                    // add their top tracks to the library
+                    trackLibrary.put(id, t);
+                    // track their occurences
+                    trackOccurrences.put(id, 1);
+                }
+                else {
+                    trackOccurrences.put(id, trackOccurrences.get(id) + 1);
+                }
+            }
+        }
+
+        // find the tracks that had threshold or more occurrences and put them into the list
+        for (String id : trackOccurrences.keySet()) {
+            if (trackOccurrences.get(id) >= threshold) {
+                Track t = trackLibrary.get(id);
+                sharedSongs.add(t);
+            }
+        }
+
+        // return the list of tracks
+        return sharedSongs;
     }
 
     // returns the top songs of a Set of GroupifyUsers whose artist is a top artist for all users
     public static List<Track> getSharedTopArtistsSongs(Set<GroupifyUser> users) {
         // TODO: this
-        return null;
+        return new ArrayList<>();
     }
 
     // returns the top songs of a set of GroupifyUsers whose artist contains genres which are top genres for all users
     public static List<Track> getSharedTopGenresSongs(Set<GroupifyUser> users) {
         // TODO: this
-        return null;
+        return new ArrayList<>();
     }
 
     // returns an array of URIs given a list of tracks
@@ -213,16 +249,17 @@ public class Groupify {
             user.setUserId(userId);
 
             // top tracks
-            Track[] topTracks = this.spotify.getUsersTopTracks().build().execute().getItems();
+            Track[] topTracks = this.spotify.getUsersTopTracks().limit(50).build().execute().getItems();
             user.setTopTracks(topTracks);
 
             // top artists
-            Artist[] topArtists = this.spotify.getUsersTopArtists().build().execute().getItems();
+            Artist[] topArtists = this.spotify.getUsersTopArtists().limit(50).build().execute().getItems();
             user.setTopArtists(topArtists);
 
             // if this guy is the host, set them as such
             if (user.isHost()) {
                 this.host = spotify.getCurrentUsersProfile().build().execute();
+                this.groupifyHost = user;
             }
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("! error gathering user info");
@@ -238,7 +275,8 @@ public class Groupify {
         if (!this.users.contains(user)) {
             throw new IllegalArgumentException("user " + user.getUserId() + " is not recognized");
         }
-        AuthorizationCodeRequest request = this.spotify.authorizationCode(user.getAuthCode()).build();
+        String authCode = user.getAuthCode();
+        AuthorizationCodeRequest request = this.spotify.authorizationCode(authCode).build();
         try {
             AuthorizationCodeCredentials credentials = request.execute();
             this.spotify.setAccessToken(credentials.getAccessToken());
