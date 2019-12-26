@@ -16,12 +16,10 @@ public class Main {
 
         // start Groupify
         Groupify g = new Groupify(PROPERTIES_FILE);
+        g.addGuest();
 
-        // add another user (me again)
-        g.addNewUser();
-
-        // print out all the users
-        System.out.println(g.getUsers());
+        // print out the party
+        System.out.println(g.getParty());
 
         // create the playlist
         g.createPlaylist();

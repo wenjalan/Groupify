@@ -1,18 +1,24 @@
 package wenjalan.groupify;
 
+import com.wrapper.spotify.SpotifyApi;
+import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.Artist;
 import com.wrapper.spotify.model_objects.specification.Track;
 
+import java.io.IOException;
 import java.util.*;
 
 // represents a specific user's taste in music
 public class GroupifyUser {
 
-    // whether or not this GroupifyUser is the host
-    private boolean isHost;
+    // the number of top tracks to retrieve
+    public static final int TOP_TRACKS_TO_RETRIEVE = 50;
 
-    // the authorization code of this user
-    private String authCode;
+    // the number of top artists to retrieve
+    public static final int TOP_ARTISTS_TO_RETRIEVE = 50;
+
+    // the display name of this user
+    private String displayName;
 
     // the user id this Taste belongs to
     private String userId;
@@ -25,11 +31,22 @@ public class GroupifyUser {
 
     // this user's top genres, based on both their top artists
     // lower index means greater affinity
-    private List<String> topGenres = null;
+    private List<String> topGenres;
 
-    // constructor: user
-    public GroupifyUser(String authCode) {
-        this.authCode = authCode;
+    // constructor
+    // api: the authorized Spotify API to use
+    public GroupifyUser(SpotifyApi api) {
+        // get the user's taste information
+        try {
+            this.displayName = api.getCurrentUsersProfile().build().execute().getDisplayName();
+            this.userId = api.getCurrentUsersProfile().build().execute().getId();
+            this.topTracks = Arrays.asList(api.getUsersTopTracks().limit(TOP_TRACKS_TO_RETRIEVE).build().execute().getItems());
+            this.topArtists = Arrays.asList(api.getUsersTopArtists().limit(TOP_ARTISTS_TO_RETRIEVE).build().execute().getItems());
+            this.topGenres = generateTopGenres(this.topArtists);
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("!!! error intializing GroupifyUser: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     // returns the top genres of a user given their top artists
@@ -71,13 +88,14 @@ public class GroupifyUser {
         return topGenres;
     }
 
+    // displayName
+    public String getDisplayName() {
+        return displayName;
+    }
+
     // userId
     public String getUserId() {
         return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     // topTracks
@@ -85,17 +103,9 @@ public class GroupifyUser {
         return topTracks.toArray(new Track[0]);
     }
 
-    public void setTopTracks(Track[] topTracks) {
-        this.topTracks = Arrays.asList(topTracks);
-    }
-
     // topArtists
     public Artist[] getTopArtists() {
         return topArtists.toArray(new Artist[0]);
-    }
-
-    public void setTopArtists(Artist[] topArtists) {
-        this.topArtists = Arrays.asList(topArtists);
     }
 
     // topGenres
@@ -104,21 +114,6 @@ public class GroupifyUser {
             generateTopGenres(this.topArtists);
         }
         return topGenres;
-    }
-
-    // returns whether or not this GroupifyUser is the host
-    public boolean isHost() {
-        return this.isHost;
-    }
-
-    // sets whether this user is the host
-    public void setHost(boolean b) {
-        this.isHost = b;
-    }
-
-    // returns the auth code of this user
-    public String getAuthCode() {
-        return this.authCode;
     }
 
     // returns whether or not a track is a top track of this user
