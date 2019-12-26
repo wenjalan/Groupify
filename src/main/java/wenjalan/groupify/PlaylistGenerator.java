@@ -59,7 +59,12 @@ public class PlaylistGenerator {
 
             // adds the songs to the playlist
             String[] uris = getUris(songs);
-            this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
+            if (uris.length > 0) {
+                this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
+            }
+            else {
+                System.out.println("> no songs found in common, playlist will be empty");
+            }
 
             // print to console
             System.out.println("> created Groupify playlist with id " + playlistId);
