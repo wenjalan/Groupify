@@ -32,6 +32,8 @@ public class PlaylistGenerator {
     // 2. a top song's artist is a top artist of all users
     // 3. a top song's artist is of a top genre for all users
     public Playlist createPlaylist() {
+        // announce
+        System.out.print("> generating playlist");
         try {
             // get the host's id
             String hostId = spotify.getCurrentUsersProfile().build().execute().getId();
@@ -43,6 +45,7 @@ public class PlaylistGenerator {
                     .build()
                     .execute();
             String playlistId = playlist.getId();
+            // String playlistUrl = idontknowhowtogetthis;
 
             // the set of songs (there should be no duplicate songs
             Set<Track> songs = new HashSet<>();
@@ -50,14 +53,17 @@ public class PlaylistGenerator {
             // 1. find top songs shared by all users
             List<Track> sharedTopSongs = getSharedTopSongs(users, users.size());
             songs.addAll(sharedTopSongs);
+            System.out.print(".");
 
             // 2. find top songs whose artist is a top artist of all users
             List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, users.size());
             songs.addAll(sharedArtistSongs);
+            System.out.print(".");
 
             // 3. find top songs whose artist has genres shared by all users
             List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, users.size());
             songs.addAll(sharedGenreSongs);
+            System.out.print(".");
 
             // adds the songs to the playlist
             String[] uris = getUris(songs);
@@ -69,7 +75,9 @@ public class PlaylistGenerator {
             }
 
             // print to console
+            System.out.println(" done!");
             System.out.println("> created Groupify playlist with id " + playlistId);
+            // System.out.println("> link: " + playlistUrl);
 
             // return the playlist
             return playlist;

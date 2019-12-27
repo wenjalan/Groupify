@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.Scanner;
+
 import static wenjalan.groupify.Groupify.PROPERTIES_FILE;
 
 @SpringBootApplication
@@ -15,11 +17,24 @@ public class Main {
         ApplicationContext c = SpringApplication.run(Main.class, args);
 
         // start Groupify
+        System.out.println(">> Host User");
         Groupify g = new Groupify(PROPERTIES_FILE);
-        g.addGuest();
+
+        Scanner console = new Scanner(System.in);
+        boolean shouldContinue = false;
+        while (!shouldContinue) {
+            System.out.println(">> Add anther user? (Return for no)");
+            String response = console.nextLine();
+            if (response.isEmpty()) {
+                shouldContinue = true;
+            }
+            else {
+                g.addGuest();
+            }
+        }
 
         // print out the party
-        System.out.println(g.getParty());
+        System.out.println(">> Users in party: " + g.getParty());
 
         // create the playlist
         g.createPlaylist();
