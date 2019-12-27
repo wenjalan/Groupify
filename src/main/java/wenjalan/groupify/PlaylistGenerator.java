@@ -2,6 +2,8 @@ package wenjalan.groupify;
 
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
+import com.wrapper.spotify.model_objects.specification.Artist;
+import com.wrapper.spotify.model_objects.specification.ArtistSimplified;
 import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.model_objects.specification.Track;
 
@@ -42,19 +44,19 @@ public class PlaylistGenerator {
                     .execute();
             String playlistId = playlist.getId();
 
-            // the list of songs
-            List<Track> songs = new ArrayList<>();
+            // the set of songs (there should be no duplicate songs
+            Set<Track> songs = new HashSet<>();
 
             // 1. find top songs shared by all users
             List<Track> sharedTopSongs = getSharedTopSongs(users, users.size());
             songs.addAll(sharedTopSongs);
 
             // 2. find top songs whose artist is a top artist of all users
-            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users);
+            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, users.size());
             songs.addAll(sharedArtistSongs);
 
             // 3. find top songs whose artist has genres shared by all users
-            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users);
+            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, users.size());
             songs.addAll(sharedGenreSongs);
 
             // adds the songs to the playlist
@@ -98,7 +100,7 @@ public class PlaylistGenerator {
 
     // returns the shared top songs of a Set of GroupifyUsers
     // threshold: the number of users that must have a song in their top tracks for it to be considered
-    private static List<Track> getSharedTopSongs(Set<GroupifyUser> users, int threshold) {
+    private List<Track> getSharedTopSongs(Set<GroupifyUser> users, int threshold) {
         // keep track of all the songs we've seen (so we don't call the API more times than we have to)
         Map<String, Track> trackLibrary = new HashMap<>();
 
@@ -125,10 +127,17 @@ public class PlaylistGenerator {
         }
 
         // find the tracks that had threshold or more occurrences and put them into the list
+        Set<String> added = new HashSet<>();
         for (String id : trackOccurrences.keySet()) {
+            // if the song was alrady added skip it
+            if (added.contains(id)) {
+                continue;
+            }
+            Track t = trackLibrary.get(id);
+            // if the song occurs <threshold> or more times, add it
             if (trackOccurrences.get(id) >= threshold) {
-                Track t = trackLibrary.get(id);
                 sharedSongs.add(t);
+                added.add(id);
             }
         }
 
@@ -136,23 +145,132 @@ public class PlaylistGenerator {
         return sharedSongs;
     }
 
-    // returns the top songs of a Set of GroupifyUsers whose artist is a top artist for all users
-    private static List<Track> getSharedTopArtistsSongs(Set<GroupifyUser> users) {
-        // TODO: this
-        return new ArrayList<>();
+    // returns the top songs of a Set of GroupifyUsers whose artist is a top artist for <threshold> users
+    // for songs with multiple artists, checks if any artist on the song is a top artist for <threshold> users
+    // threshold: the number of users that must share an artist for a track to be considered
+    private List<Track> getSharedTopArtistsSongs(Set<GroupifyUser> users, int threshold) {
+        // the list to return
+        List<Track> songs = new ArrayList<>();
+
+        // everyone's top songs, mapped by IDs and their Track objects
+        Map<String, Track> allSongs = getTopSongs(users);
+
+        // keep track of the artists seen and for how many users have them
+        Map<String, Integer> artistOccurrences = new HashMap<>();
+
+        // map everyone's top artists
+        for (GroupifyUser user : users) {
+            for (Artist a : user.getTopArtists()) {
+                String id = a.getId();
+                if (!artistOccurrences.containsKey(id)) {
+                    artistOccurrences.put(id, 1);
+                }
+                else {
+                    artistOccurrences.put(id, artistOccurrences.get(id) + 1);
+                }
+            }
+        }
+
+        // add songs where the artist is seen at least <threshold> times
+        Set<String> added = new HashSet<>();
+        for (String trackId : allSongs.keySet()) {
+            Track t = allSongs.get(trackId);
+            // if the song was already added skip it
+            if (added.contains(trackId)) {
+                continue;
+            }
+            // for each artist on the track
+            for (ArtistSimplified a : t.getArtists()) {
+                // if an artist is seen <threshold> or more times, add that track and break the loop
+                if (artistOccurrences.containsKey(a.getId()) && artistOccurrences.get(a.getId()) >= threshold) {
+                    songs.add(t);
+                    added.add(trackId);
+                    break;
+                }
+            }
+        }
+
+        // return the list of songs
+        return songs;
     }
 
     // returns the top songs of a set of GroupifyUsers whose artist contains genres which are top genres for all users
-    private static List<Track> getSharedTopGenresSongs(Set<GroupifyUser> users) {
-        // TODO: this
-        return new ArrayList<>();
+    // threshold: the number of users that must share a specific genre for it to be considered
+    private List<Track> getSharedTopGenresSongs(Set<GroupifyUser> users, int threshold) {
+        // the list of tracks to return
+        List<Track> songs = new ArrayList<>();
+
+        // map everyone's top genres
+        Map<String, Integer> genreOccurrences = new HashMap<>();
+        for (GroupifyUser user : users) {
+            for (String genre : user.getTopGenres()) {
+                if (!genreOccurrences.containsKey(genre)) {
+                    genreOccurrences.put(genre, 1);
+                }
+                else {
+                    genreOccurrences.put(genre, genreOccurrences.get(genre) + 1);
+                }
+            }
+        }
+
+        // get everyone's top songs
+        Map<String, Track> topSongs = getTopSongs(users);
+
+        // for each song, if an artist has a genre that has <threshold> or more occurrences, add it to the list
+        try {
+            Set<String> added = new HashSet<>();
+            for (String trackId : topSongs.keySet()) {
+                // if we've already added this track skip it
+                if (added.contains(trackId)) {
+                    continue;
+                }
+                Track t = topSongs.get(trackId);
+                for (ArtistSimplified artist : t.getArtists()) {
+                    String[] genres = this.spotify.getArtist(artist.getId()).build().execute().getGenres();
+                    // for each genre
+                    for (String genre : genres) {
+                        // if the genre occurs more than threshold times, add it and break
+                        if (genreOccurrences.containsKey(genre) && genreOccurrences.get(genre) >= threshold) {
+                            songs.add(t);
+                            added.add(trackId);
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("!!! playlist generation error: getSharedTopGenreSongs encountered an issue: " + e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+        // return the tracks
+        return songs;
+    }
+
+    // returns a Map of the top songs of a set of users
+    private Map<String, Track> getTopSongs(Set<GroupifyUser> users) {
+        Map<String, Track> allSongs = new HashMap<>();
+        // get everyone's top songs together
+        for (GroupifyUser user : users) {
+            for (Track t : user.getTopTracks()) {
+                // save the song to allSongs
+                String trackId = t.getId();
+                if (!allSongs.keySet().contains(trackId)) {
+                    allSongs.put(trackId, t);
+                }
+            }
+        }
+        return allSongs;
     }
 
     // returns an array of URIs given a list of tracks
-    private String[] getUris(List<Track> tracks) {
+    private String[] getUris(Set<Track> tracks) {
         String[] uris = new String[tracks.size()];
-        for (int i = 0; i < tracks.size(); i++) {
-            uris[i] = tracks.get(i).getUri();
+        Iterator<Track> iter = tracks.iterator();
+        int i = 0;
+        while (iter.hasNext()) {
+            uris[i] = iter.next().getUri();
+            i++;
         }
         return uris;
     }
