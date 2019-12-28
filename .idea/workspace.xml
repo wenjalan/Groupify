@@ -4,14 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyCallback.java" line="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/PlaylistGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/PlaylistGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -40,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
+            <state relative-caret-position="135">
+              <caret line="279" column="9" lean-forward="true" selection-start-line="279" selection-start-column="9" selection-end-line="279" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
@@ -253,12 +246,12 @@
       <workItem from="1577232964442" duration="9141000" />
       <workItem from="1577390630210" duration="1936000" />
       <workItem from="1577436608036" duration="3928000" />
-      <workItem from="1577500668338" duration="2748000" />
+      <workItem from="1577500668338" duration="3381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34270000" />
+    <option name="totallyTimeSpent" value="34903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1038" height="1126" extended-state="0" />
@@ -274,7 +267,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21227364" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.79376256" />
       <window_info anchor="bottom" x="1025" y="30" width="1023" height="1081" id="Debug" order="3" weight="0.45147058" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -404,8 +397,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
+        <state relative-caret-position="135">
+          <caret line="279" column="9" lean-forward="true" selection-start-line="279" selection-start-column="9" selection-end-line="279" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
