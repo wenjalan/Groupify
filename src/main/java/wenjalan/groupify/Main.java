@@ -36,6 +36,11 @@ public class Main {
         // print out the party
         System.out.println(">> Users in party: " + g.getParty());
 
+        // print out user info
+        for (GroupifyUser user : g.getParty()) {
+            user.printInfo();
+        }
+
         // create the playlist
         g.createPlaylist();
 

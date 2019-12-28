@@ -137,4 +137,37 @@ public class GroupifyUser {
         return this.userId;
     }
 
+    // prints all the information we have on a user
+    public void printInfo() {
+        // name
+        System.out.println(">>> " + this.getDisplayName() + "'s information: ");
+
+        // top tracks
+        System.out.println();
+        System.out.println("> top songs:");
+        int i = 1;
+        for (Track t : this.topTracks) {
+            System.out.println("> " + i + ": " + t.getName());
+            i++;
+        }
+
+        // top artists
+        System.out.println();
+        System.out.println("> top artists:");
+        i = 1;
+        for (Artist a : this.topArtists) {
+            System.out.println("> " + i + ": " + a.getName());
+            i++;
+        }
+
+        // top genres
+        System.out.println();
+        System.out.println("> top genres");
+        i = 1;
+        for (String genre : this.topGenres) {
+            System.out.println("> " + i + ": " + genre);
+            i++;
+        }
+    }
+
 }

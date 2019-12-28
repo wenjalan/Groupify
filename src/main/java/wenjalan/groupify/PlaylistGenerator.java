@@ -2,10 +2,8 @@ package wenjalan.groupify;
 
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.specification.Artist;
-import com.wrapper.spotify.model_objects.specification.ArtistSimplified;
-import com.wrapper.spotify.model_objects.specification.Playlist;
-import com.wrapper.spotify.model_objects.specification.Track;
+import com.wrapper.spotify.model_objects.specification.*;
+import com.wrapper.spotify.requests.data.browse.GetRecommendationsRequest;
 
 import java.io.IOException;
 import java.util.*;
@@ -14,6 +12,12 @@ public class PlaylistGenerator {
 
     // the Spotify API
     private SpotifyApi spotify;
+
+    // the threshold for track property sharing
+    public static final int THRESHOLD = 2;
+
+    // the size of the playlist
+    public static final int PLAYLIST_SIZE = 50;
 
     // the Set of Users to generate a playlist for
     private Set<GroupifyUser> users;
@@ -51,18 +55,23 @@ public class PlaylistGenerator {
             Set<Track> songs = new HashSet<>();
 
             // 1. find top songs shared by all users
-            List<Track> sharedTopSongs = getSharedTopSongs(users, users.size());
+            List<Track> sharedTopSongs = getSharedTopSongs(users, THRESHOLD);
             songs.addAll(sharedTopSongs);
-            System.out.print(".");
 
             // 2. find top songs whose artist is a top artist of all users
-            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, users.size());
+            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, THRESHOLD);
             songs.addAll(sharedArtistSongs);
             System.out.print(".");
 
             // 3. find top songs whose artist has genres shared by all users
-            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, users.size());
+            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, THRESHOLD);
             songs.addAll(sharedGenreSongs);
+            System.out.print(".");
+
+            // 4. fill in the rest of the playlist
+            int num = PLAYLIST_SIZE - songs.size();
+            List<Track> recommendations = getRecommendations(songs, num);
+            songs.addAll(recommendations);
             System.out.print(".");
 
             // adds the songs to the playlist
@@ -254,6 +263,46 @@ public class PlaylistGenerator {
         // return the tracks
         return songs;
     }
+
+    // returns a list of recommended songs songs based on a given list of songs
+    // songs: the list of songs
+    // limit: the number of songs to recommend
+    private List<Track> getRecommendations(Set<Track> tracks, int limit) {
+        // the list of songs to return
+        List<Track> songs = new ArrayList<>();
+
+        // generate a list of track ids based off of tracks
+        StringBuilder trackIds = new StringBuilder();
+        Iterator<Track> iter = tracks.iterator();
+        for (int i = 0; i < 5 && iter.hasNext(); i++) {
+            Track t = iter.next();
+            trackIds.append(t.getId() + ",");
+        }
+
+        // create a request
+        GetRecommendationsRequest request = spotify.getRecommendations()
+                .limit(limit)
+                .seed_tracks(trackIds.toString())
+                .build();
+
+        // run the request
+        try {
+            TrackSimplified[] recommendations = request.execute().getTracks();
+            // add all the songs
+            for (TrackSimplified ts : recommendations) {
+                Track realTrack = spotify.getTrack(ts.getId()).build().execute();
+                songs.add(realTrack);
+            }
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("!!! error getting recommendations: " + e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+
+        // return the songs
+        return songs;
+    }
+
 
     // returns a Map of the top songs of a set of users
     private Map<String, Track> getTopSongs(Set<GroupifyUser> users) {
