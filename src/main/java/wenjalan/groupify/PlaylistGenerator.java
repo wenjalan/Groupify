@@ -17,7 +17,7 @@ public class PlaylistGenerator {
     public static final int THRESHOLD = 2;
 
     // the size of the playlist
-    public static final int PLAYLIST_SIZE = 50;
+    public static final int PLAYLIST_SIZE = 80;
 
     // the Set of Users to generate a playlist for
     private Set<GroupifyUser> users;

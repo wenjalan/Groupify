@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="290" column="25" lean-forward="true" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
+            <state relative-caret-position="255">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="method#getTopSongs#0;class#PlaylistGenerator#0" />
               </folding>
@@ -104,11 +103,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1299" />
-    <option name="height" value="1103" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -245,15 +243,15 @@
       <workItem from="1577390630210" duration="1936000" />
       <workItem from="1577436608036" duration="3928000" />
       <workItem from="1577500668338" duration="3381000" />
-      <workItem from="1577577888651" duration="1354000" />
+      <workItem from="1577577888651" duration="1884000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36257000" />
+    <option name="totallyTimeSpent" value="36787000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.21628372" />
@@ -266,7 +264,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21176471" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21176471" />
       <window_info anchor="bottom" x="1025" y="30" width="1023" height="1081" id="Debug" order="3" weight="0.45147058" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="290" column="25" lean-forward="true" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="method#getTopSongs#0;class#PlaylistGenerator#0" />
           </folding>
