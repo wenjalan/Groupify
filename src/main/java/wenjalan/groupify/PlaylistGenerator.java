@@ -268,6 +268,11 @@ public class PlaylistGenerator {
     // songs: the list of songs
     // limit: the number of songs to recommend
     private List<Track> getRecommendations(Set<Track> tracks, int limit) {
+        // if we're supposed to get nothing, return nothing
+        if (limit == 0) {
+            return Collections.emptyList();
+        }
+
         // the list of songs to return
         List<Track> songs = new ArrayList<>();
 
