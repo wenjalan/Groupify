@@ -91,7 +91,7 @@ public class Groupify {
         AuthorizationCodeUriRequest request = api.authorizationCodeUri()
                 .scope(String.join(" ", scopes))
                 .build();
-        System.out.println("> authentication URI: " + request.getUri());
+        System.out.println("> URI: " + request.getUri());
 
         // wait for code to arrive in Groupify Callback and authenticate the API instance
         String code = null;

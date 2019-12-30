@@ -2,7 +2,10 @@ package wenjalan.groupify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.Scanner;
 
@@ -17,30 +20,44 @@ public class Main {
         ApplicationContext c = SpringApplication.run(Main.class, args);
 
         // start Groupify
-        System.out.println(">> Host User");
+        System.out.println(">> Starting Groupify Prototype 2 (12/30/19) <<");
         Groupify g = new Groupify(PROPERTIES_FILE);
 
+        // start loop
         Scanner console = new Scanner(System.in);
-        boolean shouldContinue = false;
-        while (!shouldContinue) {
-            System.out.println(">> Add anther user? (Return for no)");
-            String response = console.nextLine();
-            if (response.isEmpty()) {
-                shouldContinue = true;
+        boolean quit = false;
+        while (!quit) {
+            // print out the party
+            System.out.println();
+            System.out.println(">> Current Party:");
+            for (GroupifyUser u : g.getParty()) {
+                System.out.println("\t" + u.getDisplayName() + " (" + u.getUserId() + ")");
             }
-            else {
+            System.out.println();
+            System.out.println(">> Commands:\n\tADD (add a new user)\n\tCREATE (create the playlist on the host user" +
+                    "s account)\n\tINFO (print user information)\n\tQUIT (quit the application)");
+            String response = console.nextLine();
+            if (response.equalsIgnoreCase("add")) {
                 g.addGuest();
             }
+            else if (response.equalsIgnoreCase("create")) {
+                g.createPlaylist();
+            }
+            else if (response.equalsIgnoreCase("info")) {
+                for (GroupifyUser u : g.getParty()) {
+                    u.printInfo();
+                }
+            }
+            else if (response.equalsIgnoreCase("quit")) {
+                quit = true;
+            }
+            else {
+                System.err.println("!! command not recognized: " + response);
+            }
         }
 
-        // print out the party
-        System.out.println(">> Users in party: " + g.getParty());
-        for (GroupifyUser u : g.getParty()) {
-            u.printInfo();
-        }
-
-        // create the playlist
-        g.createPlaylist();
+        // announce
+        System.out.println(">> Groupify shutting down... <<");
 
         // stop Spring web service
         SpringApplication.exit(c, () -> 0);
