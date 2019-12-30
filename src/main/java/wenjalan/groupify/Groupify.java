@@ -41,12 +41,12 @@ public class Groupify {
 
     // the scopes we're using
     public static final String[] SCOPES = {
-            "playlist-modify-public ",
-//            "playlist-read-collaborative ",
-//            "playlist-read-private ",
+            "playlist-modify-public",
+            "playlist-read-collaborative",
+            "playlist-read-private",
             "playlist-modify-private",
             "user-top-read",
-            "user-read-recently-played"
+            "user-library-read"
     };
 
     // Spring constructor (empty)
@@ -126,7 +126,7 @@ public class Groupify {
         users.add(user);
 
         // announce
-        System.out.println("> added user " + user.getUserId() + " to the party");
+        System.out.println("> added " + user.getDisplayName() + " to the party");
     }
 
     // authorizes a Spotify Web API instance with an auth code

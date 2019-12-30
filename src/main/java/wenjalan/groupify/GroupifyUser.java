@@ -2,8 +2,7 @@ package wenjalan.groupify;
 
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.specification.Artist;
-import com.wrapper.spotify.model_objects.specification.Track;
+import com.wrapper.spotify.model_objects.specification.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -33,17 +32,29 @@ public class GroupifyUser {
     // lower index means greater affinity
     private List<String> topGenres;
 
+    // this user's playlists
+    private List<Playlist> playlists;
+
+    // this user's liked songs
+    private List<Track> savedTracks;
+
     // constructor
     // api: the authorized Spotify API to use
     public GroupifyUser(SpotifyApi api) {
         // get the user's taste information
         try {
             this.displayName = api.getCurrentUsersProfile().build().execute().getDisplayName();
+            // announce
+            System.out.print("> loading " + this.displayName + "'s tracks...");
             this.userId = api.getCurrentUsersProfile().build().execute().getId();
             this.topTracks = Arrays.asList(api.getUsersTopTracks().limit(TOP_TRACKS_TO_RETRIEVE).build().execute().getItems());
             this.topArtists = Arrays.asList(api.getUsersTopArtists().limit(TOP_ARTISTS_TO_RETRIEVE).build().execute().getItems());
+            this.playlists = loadPlaylists(api);
+            this.savedTracks = loadSavedTracks(api, 50);
             this.topGenres = generateTopGenres(this.topArtists);
+            System.out.println(" done!");
         } catch (SpotifyWebApiException | IOException e) {
+            System.out.println();
             System.err.println("!!! error intializing GroupifyUser: " + e.getMessage());
             e.printStackTrace();
         }
@@ -86,6 +97,38 @@ public class GroupifyUser {
             }
         }
         return topGenres;
+    }
+
+    // returns a list of a user's playlists
+    public static List<Playlist> loadPlaylists(SpotifyApi api) {
+        try {
+            List<Playlist> playlists = new ArrayList<>();
+            PlaylistSimplified[] playlistsSimplified = api.getListOfCurrentUsersPlaylists().build().execute().getItems();
+            for (PlaylistSimplified ps : playlistsSimplified) {
+                playlists.add(api.getPlaylist(ps.getId()).build().execute());
+            }
+            return playlists;
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("error loading playlists: " + e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+    // returns a list of a user's liked tracks
+    public static List<Track> loadSavedTracks(SpotifyApi api, int limit) {
+        try {
+            List<Track> tracks = new ArrayList<>();
+            SavedTrack[] tracksSimplified = api.getUsersSavedTracks().limit(limit).build().execute().getItems();
+            for (SavedTrack st : tracksSimplified) {
+                tracks.add(st.getTrack());
+            }
+            return tracks;
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("error loading saved tracks: " + e.getMessage());
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
     }
 
     // displayName
@@ -141,6 +184,10 @@ public class GroupifyUser {
     public void printInfo() {
         // name
         System.out.println(">>> " + this.getDisplayName() + "'s information: ");
+
+        // playlist and library info
+        System.out.println("> found " + this.playlists.size() + " playlists");
+        System.out.println("> found " + this.savedTracks.size() + " saved tracks");
 
         // top tracks
         System.out.println();
