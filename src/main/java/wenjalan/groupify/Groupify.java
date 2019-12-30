@@ -30,6 +30,9 @@ public class Groupify {
     // the Groupify properties file name
     public static final String PROPERTIES_FILE = "groupify.properties";
 
+    // the maximum number of users in a party
+    public static final int MAX_PARTY_SIZE = 99;
+
     // the Host's Spotify Web API instance
     protected SpotifyApi hostSpotify;
 
@@ -75,6 +78,10 @@ public class Groupify {
 
     // adds a new user to the group
     public void addGuest() {
+        // party size limit
+        if (users.size() >= MAX_PARTY_SIZE) {
+            throw new IllegalStateException("max number of users in a party is " + MAX_PARTY_SIZE);
+        }
         authenticate(guestSpotify, SCOPES);
     }
 
@@ -137,6 +144,11 @@ public class Groupify {
 
     // creates a new Playlist based off of all the users in the current pool
     public Playlist createPlaylist() {
+        // check if we can generate a playlist
+        // at least 2 users
+        if (this.users.size() < 2) {
+            throw new IllegalStateException("can't create playlist, at least 2 users need to be in the party");
+        }
         PlaylistGenerator generator = new PlaylistGenerator(hostSpotify, users);
         return generator.createPlaylist();
     }

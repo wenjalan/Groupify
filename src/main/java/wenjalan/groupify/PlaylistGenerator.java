@@ -242,8 +242,17 @@ public class PlaylistGenerator {
                     continue;
                 }
                 Track t = topSongs.get(trackId);
-                for (ArtistSimplified artist : t.getArtists()) {
-                    String[] genres = this.spotify.getArtist(artist.getId()).build().execute().getGenres();
+                ArtistSimplified[] artistsSimplified = t.getArtists();
+                // get their ids
+                String artistIds = getIdsAsString(artistsSimplified);
+                // get the real Artist objects
+                Artist[] artists = spotify.getSeveralArtists(artistIds).build().execute();
+                for (Artist artist : artists) {
+                    // if the artist isn't null (why can an artist be null?)
+                    if (artist == null) {
+                        continue;
+                    }
+                    String[] genres = artist.getGenres();
                     // for each genre
                     for (String genre : genres) {
                         // if the genre occurs more than threshold times, add it and break
@@ -269,8 +278,16 @@ public class PlaylistGenerator {
     // limit: the number of songs to recommend
     private List<Track> getRecommendations(Set<Track> tracks, int limit) {
         // if we're supposed to get nothing, return nothing
-        if (limit == 0) {
+        if (limit <= 0) {
             return Collections.emptyList();
+        }
+        // if we're given no tracks, throw an exception
+        if (tracks.isEmpty()) {
+            throw new IllegalArgumentException("tracks cannot be empty");
+        }
+        // if the limit is above the max spotify wants
+        if (limit > 100) {
+            throw new IllegalArgumentException("cannot retrieve more than 100 recommendations");
         }
 
         // the list of songs to return
@@ -294,13 +311,20 @@ public class PlaylistGenerator {
         try {
             TrackSimplified[] recommendations = request.execute().getTracks();
             // add all the songs
+//            // get the tracks if there were recommendations
+//            String recIds = getIdsAsString(recommendations);
+//            // Track[] recTracks = spotify.getSeveralTracks(recIds).build().execute();
+//            spotify.getTra
+//            // add them to the list
+//            songs.addAll(Arrays.asList(recTracks));
+            // TODO: optimize this with getSeveralTracks() (attempted implementation above crashes)
             for (TrackSimplified ts : recommendations) {
-                Track realTrack = spotify.getTrack(ts.getId()).build().execute();
-                songs.add(realTrack);
+                songs.add(spotify.getTrack(ts.getId()).build().execute());
             }
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("!!! error getting recommendations: " + e.getMessage());
             e.printStackTrace();
+            System.err.println("seed track ids: " + trackIds.toString().replace(",", ",\n"));
             return Collections.emptyList();
         }
 
@@ -331,10 +355,50 @@ public class PlaylistGenerator {
         Iterator<Track> iter = tracks.iterator();
         int i = 0;
         while (iter.hasNext()) {
-            uris[i] = iter.next().getUri();
+            Track t = iter.next();
+            if (t == null) {
+                throw new IllegalStateException("track is null");
+            }
+            uris[i] = t.getUri();
             i++;
         }
         return uris;
+    }
+
+    // returns a comma-separated list of artist ids given an array of SimplifiedArtists
+    private String getIdsAsString(ArtistSimplified[] artists) {
+        if (artists.length == 0) {
+            return "";
+        }
+        else if (artists.length == 1) {
+            return artists[0].getId();
+        }
+        else {
+            String ids = "";
+            for (ArtistSimplified a : artists) {
+                ids += a.getId() + ",";
+            }
+            return ids.substring(0, ids.length() - 2); // cut off the end comma
+            // return ids;
+        }
+    }
+
+    // returns a comma-separated list of track ids given an array of SimplifiedTracks
+    private String getIdsAsString(TrackSimplified[] tracks) {
+        if (tracks.length == 0) {
+            return "";
+        }
+        else if (tracks.length == 1) {
+            return tracks[0].getId();
+        }
+        else {
+            String ids = "";
+            for (TrackSimplified t : tracks) {
+                ids += t.getId() + ",";
+            }
+            return ids.substring(0, ids.length() - 2); // cut off the end comma
+            // return ids;
+        }
     }
 
 }
