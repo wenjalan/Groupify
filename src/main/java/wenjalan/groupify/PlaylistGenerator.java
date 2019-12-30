@@ -32,9 +32,13 @@ public class PlaylistGenerator {
 
     // creates a playlist based off the users' tastes
     // how songs are selected:
-    // 1. a top song is a shared by all users
-    // 2. a top song's artist is a top artist of all users
-    // 3. a top song's artist is of a top genre for all users
+    // 1. a top song is a shared by THRESHOLD or more users
+    // 2. a top song's artist is a top artist of THRESHOLD or more users
+    // 3. a top song's artist is of a top genre of THRESHOLD or more users
+    // TODO:
+    // 4. a track is a saved track of THRESHOLD or more users
+    // 5. a track is in a playlist of THRESHOLD or more users
+    // last. recommended songs to bring the total up to the PLAYLIST_SIZE
     public Playlist createPlaylist() {
         // announce
         System.out.print("> generating playlist");
