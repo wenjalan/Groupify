@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.*;
+import java.util.function.Predicate;
 
 // main program entry point
 public class Groupify {
@@ -187,6 +188,11 @@ public class Groupify {
         }
         PlaylistGenerator generator = new PlaylistGenerator(hostSpotify, users, DEBUG_MODE);
         return generator.createPlaylist();
+    }
+
+    // removes everyone from the party, excluding the host
+    public void clearParty() {
+        users.removeIf((x) -> x != groupifyHost);
     }
 
     // returns the set of users currently registered in the app

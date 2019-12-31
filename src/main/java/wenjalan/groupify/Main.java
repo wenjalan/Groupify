@@ -39,6 +39,7 @@ public class Main {
                     "\n\tCREATE (create the playlist on the host user's account)" +
                     "\n\tINFO (print information about all users in the party)" +
                     "\n\tPURGE (unfollows all playlists named \"Groupify Playlist\" on the host user's account)" +
+                    "\n\tCLEAR (removes all users from the party except for the host)" +
                     "\n\tQUIT (quit the application)");
             String response = console.nextLine();
             if (response.equalsIgnoreCase("add")) {
@@ -54,6 +55,9 @@ public class Main {
             }
             else if (response.equalsIgnoreCase("purge")) {
                 g.unfollowOldPlaylists();
+            }
+            else if (response.equalsIgnoreCase("clear")) {
+                g.clearParty();
             }
             else if (response.equalsIgnoreCase("quit")) {
                 quit = true;
