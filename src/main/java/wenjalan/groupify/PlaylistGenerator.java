@@ -35,7 +35,7 @@ public class PlaylistGenerator {
     // 1. a top song is a shared by THRESHOLD or more users
     // 2. a top song's artist is a top artist of THRESHOLD or more users
     // 3. a top song's artist is of a top genre of THRESHOLD or more users
-    // TODO:
+    // TODO: these
     // 4. a track is a saved track of THRESHOLD or more users
     // 5. a track is in a playlist of THRESHOLD or more users
     // last. recommended songs to bring the total up to the PLAYLIST_SIZE
@@ -74,13 +74,21 @@ public class PlaylistGenerator {
 
             // 4. fill in the rest of the playlist
             int num = PLAYLIST_SIZE - songs.size();
-            List<Track> recommendations = getRecommendations(songs, num);
-            songs.addAll(recommendations);
+            if (num > 0) {
+                List<Track> recommendations = getRecommendations(songs, num);
+                songs.addAll(recommendations);
+            }
             System.out.print(".");
 
             // adds the songs to the playlist
             String[] uris = getUris(songs);
             if (uris.length > 0) {
+                // add only 100 songs
+                // TODO: add more than 100 songs
+                if (uris.length > 100) {
+                    uris = Arrays.copyOf(uris, 100);
+
+                }
                 this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
             }
             else {
