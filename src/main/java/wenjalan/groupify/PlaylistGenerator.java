@@ -348,10 +348,16 @@ public class PlaylistGenerator {
                 }
                 Track t = topSongs.get(trackId);
                 ArtistSimplified[] artistsSimplified = t.getArtists();
-                // get their ids
-                String artistIds = getIdsAsString(artistsSimplified);
-                // get the real Artist objects
-                Artist[] artists = spotify.getSeveralArtists(artistIds).build().execute();
+                // get the real artist objects
+                List<Artist> artists;
+                // more than 1 artist
+                if (artistsSimplified.length > 1) {
+                     artists = unsimplify(artistsSimplified);
+                }
+                // only 1 artist
+                else {
+                    artists = Arrays.asList(spotify.getArtist(artistsSimplified[0].getId()).build().execute());
+                }
                 for (Artist artist : artists) {
                     // if the artist isn't null (why can an artist be null?)
                     if (artist == null) {
@@ -417,13 +423,8 @@ public class PlaylistGenerator {
         try {
             // add all recommended songs
             TrackSimplified[] recommendations = request.execute().getTracks();
-            // todo: potential too many ids error here
-            List<String> ids = Arrays.stream(recommendations).map(TrackSimplified::getId).collect(Collectors.toList());
-            for (int i = 0; i < ids.size(); i += 50) {
-                String idQuery = String.join(",", ids.subList(i, Math.min(i + 50, ids.size())));
-                Track[] recTracks = spotify.getSeveralTracks(idQuery).build().execute();
-                songs.addAll(Arrays.asList(recTracks));
-            }
+            List<Track> recTracks = unsimplify(recommendations);
+            songs.addAll(recTracks);
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("!!! error getting recommendations: " + e.getMessage());
             e.printStackTrace();
@@ -504,17 +505,32 @@ public class PlaylistGenerator {
         }
     }
 
-    // TODO: finish implementation
-//    // returns an array of Tracks given an array of TrackSimplifieds
-//    private List<Track> unsimplify(TrackSimplified[] simplifieds) throws SpotifyWebApiException, IOException {
-//        List<Track> tracks = new ArrayList<>();
-//        for (int i = 0; i < simplifieds.length; i += 50) {
-//            for (int j = 0; j < Math.max(50, simplifieds.length - i); j++) {
-//                String ids =
-//                Track[] retrieved = spotify.getSeveralTracks().build().execute();
-//                tracks.addAll(Arrays.asList(retrieved));
-//            }
-//        }
-//    }
+    // returns a list of Tracks given an array of TrackSimplifieds
+    private List<Track> unsimplify(TrackSimplified[] simplifieds) throws SpotifyWebApiException, IOException {
+        List<Track> tracks = new ArrayList<>();
+        for (int i = 0; i < simplifieds.length; i += 50) {
+            String ids = String.join(",", Arrays.stream(
+                    Arrays.copyOfRange(simplifieds, i, Math.min(i + 50, simplifieds.length)))
+                    .map(TrackSimplified::getId)
+                    .collect(Collectors.toList()));
+            Track[] retrieved = spotify.getSeveralTracks(ids).build().execute();
+            tracks.addAll(Arrays.asList(retrieved));
+        }
+        return tracks;
+    }
+
+    // returns a list of Artists given an array of ArtistSimplifieds
+    private List<Artist> unsimplify(ArtistSimplified[] simplifieds) throws SpotifyWebApiException, IOException {
+        List<Artist> artists = new ArrayList<>();
+        for (int i = 0; i < simplifieds.length; i += 50) {
+            String ids = String.join(",", Arrays.stream(
+               Arrays.copyOfRange(simplifieds, i, Math.min(i + 50, simplifieds.length)))
+               .map(ArtistSimplified::getId)
+               .collect(Collectors.toList()));
+            Artist[] retrieved = spotify.getSeveralArtists(ids).build().execute();
+            artists.addAll(Arrays.asList(retrieved));
+        }
+        return artists;
+    }
 
 }
