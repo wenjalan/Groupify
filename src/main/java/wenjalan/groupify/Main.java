@@ -21,7 +21,7 @@ public class Main {
 
         // start Groupify
         System.out.println(">> Starting Groupify Prototype 2 (12/30/19) <<");
-        Groupify g = new Groupify(PROPERTIES_FILE);
+        Groupify g = new Groupify(PROPERTIES_FILE, true);
 
         // start loop
         Scanner console = new Scanner(System.in);

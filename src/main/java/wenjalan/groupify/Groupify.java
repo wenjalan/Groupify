@@ -21,6 +21,9 @@ import java.util.*;
 // main program entry point
 public class Groupify {
 
+    // whether or not we should debug log
+    public final boolean DEBUG_MODE;
+
     // the GroupifyUser host
     protected GroupifyUser groupifyHost = null;
 
@@ -39,8 +42,8 @@ public class Groupify {
     // the guests' Spotify Web API instance
     protected SpotifyApi guestSpotify;
 
-    // the scopes we're using
-    public static final String[] SCOPES = {
+    // the scopes we're using for the host
+    public static final String[] HOST_SCOPES = {
             "playlist-modify-public",
             "playlist-read-collaborative",
             "playlist-read-private",
@@ -49,12 +52,25 @@ public class Groupify {
             "user-library-read"
     };
 
+    // the scopes we're using for the guests
+    public static final String[] GUEST_SCOPES = {
+            "playlist-read-collaborative",
+            "playlist-read-private",
+            "user-top-read",
+            "user-library-read"
+    };
+
     // Spring constructor (empty)
     @Autowired
-    protected Groupify() {}
+    private Groupify() {
+        DEBUG_MODE = false;
+    }
 
-    // Groupify constructor
-    protected Groupify(String propertiesFilePath) {
+    // Debug constructor
+    protected Groupify(String propertiesFilePath, boolean debugEnabled) {
+        // set debug to false by default
+        DEBUG_MODE = debugEnabled;
+
         // get the configuration from the properties file
         GroupifyConfiguration config = GroupifyConfiguration.from(propertiesFilePath);
 
@@ -72,8 +88,13 @@ public class Groupify {
                 .setRedirectUri(config.REDIRECT_URI)
                 .build();
 
-        // request user authentication
-        authenticate(hostSpotify, SCOPES);
+        // request user authentication for host
+        authenticate(hostSpotify, HOST_SCOPES);
+    }
+
+    // Groupify constructor
+    protected Groupify(String propertiesFilePath) {
+        this(propertiesFilePath, false);
     }
 
     // adds a new user to the group
@@ -82,7 +103,7 @@ public class Groupify {
         if (users.size() >= MAX_PARTY_SIZE) {
             throw new IllegalStateException("max number of users in a party is " + MAX_PARTY_SIZE);
         }
-        authenticate(guestSpotify, SCOPES);
+        authenticate(guestSpotify, GUEST_SCOPES);
     }
 
     // requests the user to authenticate Groupify to modify their data given a Spotify Web API instance
@@ -149,7 +170,7 @@ public class Groupify {
         if (this.users.size() < 2) {
             throw new IllegalStateException("can't create playlist, at least 2 users need to be in the party");
         }
-        PlaylistGenerator generator = new PlaylistGenerator(hostSpotify, users);
+        PlaylistGenerator generator = new PlaylistGenerator(hostSpotify, users, DEBUG_MODE);
         return generator.createPlaylist();
     }
 
