@@ -28,7 +28,7 @@ public class Groupify {
     protected GroupifyUser groupifyHost = null;
 
     // the Map of GroupifyUser IDs to their authentication codes
-    protected Set<GroupifyUser> users = new HashSet<>();
+    protected Set<GroupifyUser> users = null;
 
     // the Groupify properties file name
     public static final String PROPERTIES_FILE = "groupify.properties";
@@ -159,6 +159,21 @@ public class Groupify {
             api.setRefreshToken(credentials.getRefreshToken());
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("!!! error authorizing api: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // deletes previously created Groupify Playlists from the host user's account
+    public void unfollowOldPlaylists() {
+        List<Playlist> playlists = groupifyHost.getPlaylists();
+        try {
+            for (Playlist p : playlists) {
+                if (p.getName().equalsIgnoreCase("Groupify Playlist")) {
+                    hostSpotify.unfollowPlaylist(p.getId()).build().execute();
+                }
+            }
+        } catch (SpotifyWebApiException | IOException e) {
+            System.err.println("! error unfollowing Groupify playlist " + e.getMessage());
             e.printStackTrace();
         }
     }

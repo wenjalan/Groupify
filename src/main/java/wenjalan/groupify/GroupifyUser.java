@@ -159,6 +159,16 @@ public class GroupifyUser {
         return topGenres;
     }
 
+    // playlists
+    public List<Playlist> getPlaylists() {
+        return this.playlists;
+    }
+
+    // saved tracks
+    public List<Track> getSavedTracks() {
+        return this.savedTracks;
+    }
+
     // returns whether or not a track is a top track of this user
     public boolean isTopTrack(Track track) {
         return this.topTracks.contains(track);

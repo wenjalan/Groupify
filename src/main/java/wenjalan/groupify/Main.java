@@ -34,8 +34,12 @@ public class Main {
                 System.out.println("\t" + u.getDisplayName() + " (" + u.getUserId() + ")");
             }
             System.out.println();
-            System.out.println(">> Commands:\n\tADD (add a new user)\n\tCREATE (create the playlist on the host user" +
-                    "s account)\n\tINFO (print user information)\n\tQUIT (quit the application)");
+            System.out.println(">> Commands:" +
+                    "\n\tADD (adds a new user to the party)" +
+                    "\n\tCREATE (create the playlist on the host user's account)" +
+                    "\n\tINFO (print information about all users in the party)" +
+                    "\n\tPURGE (unfollows all playlists named \"Groupify Playlist\" on the host user's account)" +
+                    "\n\tQUIT (quit the application)");
             String response = console.nextLine();
             if (response.equalsIgnoreCase("add")) {
                 g.addGuest();
@@ -47,6 +51,9 @@ public class Main {
                 for (GroupifyUser u : g.getParty()) {
                     u.printInfo();
                 }
+            }
+            else if (response.equalsIgnoreCase("purge")) {
+                g.unfollowOldPlaylists();
             }
             else if (response.equalsIgnoreCase("quit")) {
                 quit = true;
