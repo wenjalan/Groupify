@@ -244,12 +244,16 @@ public class PlaylistGenerator {
         // keep track of the artists seen and for how many users have them
         Map<String, Integer> artistOccurrences = new HashMap<>();
 
+        // keep track of artist ids to their actual artist objects (for debugging)
+        Map<String, Artist> idToArtist = new HashMap<>();
+
         // map everyone's top artists
         for (GroupifyUser user : users) {
             for (Artist a : user.getTopArtists()) {
                 String id = a.getId();
                 if (!artistOccurrences.containsKey(id)) {
                     artistOccurrences.put(id, 1);
+                    idToArtist.put(id, a);
                 }
                 else {
                     artistOccurrences.put(id, artistOccurrences.get(id) + 1);
@@ -258,30 +262,13 @@ public class PlaylistGenerator {
         }
 
         // debug logging
-        // TODO: figure out an implementation that doesn't trigger a too many ids requested or too many requests error
-//        if (DEBUG_MODE) {
-//            System.out.println(DEBUG_PREFIX + "group top artists:");
-//            // get the name of the artists and print them
-//            try {
-//                // map artist ids to their names
-//                String artistIds = String.join(",", artistOccurrences.keySet());
-//                Artist[] artists = spotify.getSeveralArtists(artistIds).build().execute();
-//                Map<String, String> idsToNames = new HashMap<>();
-//                for (Artist a : artists) {
-//                    idsToNames.put(a.getId(), a.getName());
-//                }
-//
-//                // print out the occurrences of artists and their names
-//                for (String id : artistOccurrences.keySet()) {
-//                    String name = idsToNames.get(id);
-//                    System.out.println(DEBUG_PREFIX + "\t" + artistOccurrences.get(id) + " : " + name);
-//                }
-//            } catch (SpotifyWebApiException | IOException e) {
-//                System.err.println("! error getting names of top artists: " + e.getMessage());
-//                e.printStackTrace();
-//            }
-//            System.out.println();
-//        }
+        if (DEBUG_MODE) {
+            System.out.println(DEBUG_PREFIX + "group top artists:");
+            for (String id : artistOccurrences.keySet()) {
+                System.out.println(DEBUG_PREFIX + "\t" + artistOccurrences.get(id) + " : " + idToArtist.get(id).getName());
+            }
+            System.out.println();
+        }
 
         // add songs where the artist is seen at least <threshold> times
         Set<String> added = new HashSet<>();
