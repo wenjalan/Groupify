@@ -61,6 +61,8 @@ public class PlaylistGenerator {
     // TODO: these
     // 4. a track is a saved track of THRESHOLD or more users
     // 5. a track is in a playlist of THRESHOLD or more users
+    // TODO: future improvements
+    // - let host user decide what genres the playlist should have
     // last. recommended songs to bring the total up to the PLAYLIST_SIZE
     public Playlist createPlaylist() {
         // announce
@@ -79,7 +81,7 @@ public class PlaylistGenerator {
             String playlistId = playlist.getId();
             String playlistUrl = playlist.getHref();
 
-            // the set of songs (there should be no duplicate songs
+            // the set of songs (there should be no duplicate songs)
             Set<Track> songs = new HashSet<>();
 
             // 1. find top songs shared by THRESHOLD users
