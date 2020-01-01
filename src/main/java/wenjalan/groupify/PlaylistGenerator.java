@@ -1,7 +1,11 @@
 package wenjalan.groupify;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.*;
@@ -26,8 +30,11 @@ public class PlaylistGenerator {
     // the threshold for track property sharing
     public static final int THRESHOLD = 2;
 
-    // the size of the playlist
-    public static final int PLAYLIST_SIZE = 100;
+    // the minimum size of the playlist
+    public static final int MIN_PLAYLIST_SIZE = 100;
+
+    // the maximum size of the playlist
+    public static final int MAX_PLAYLIST_SIZE = 300;
 
     // the Set of Users to generate a playlist for
     private Set<GroupifyUser> users;
@@ -87,8 +94,8 @@ public class PlaylistGenerator {
             List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, THRESHOLD);
             songs.addAll(sharedGenreSongs);
 
-            // 4. fill in the rest of the playlist
-            int num = PLAYLIST_SIZE - songs.size();
+            // 4. fill in the rest of the playlist up to the min
+            int num = MIN_PLAYLIST_SIZE - songs.size();
             List<Track> recommendations = null;
 
             if (num > 0) {
@@ -128,28 +135,31 @@ public class PlaylistGenerator {
                 System.out.println();
             }
 
-            // adds the songs to the playlist
-            JsonArray uris = getUris(songs);
-//            if (uris.length > 0) {
-//                // add only 100 songs
-//                // TODO: add more than 100 songs
-//                if (uris.length > 100) {
-//                    uris = Arrays.copyOf(uris, 100);
-//                }
-//                this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
-//            }
-//            else {
-//                System.out.println("> no songs found in common, playlist will be empty");
-//            }
+            // get the uris
+            List<String> uris = getUris(songs);
+
+            // cut the thing down to size
+            if (uris.size() > MAX_PLAYLIST_SIZE) {
+                uris = uris.subList(0, MAX_PLAYLIST_SIZE);
+            }
+
             // debug logging
             if (DEBUG_MODE) {
                 System.out.println(DEBUG_PREFIX + uris.size() + " final track uris:");
-                for (JsonElement uri : uris) {
-                    System.out.println(DEBUG_PREFIX + "\t" + uri.getAsString());
+                for (String uri : uris) {
+                    System.out.println(DEBUG_PREFIX + "\t" + uri);
                 }
             }
-            this.spotify.addTracksToPlaylist(playlistId, uris).build().execute();
 
+            // add the songs in batches of 100 or less
+            for (int i = 0; i < uris.size(); i += 100) {
+                List<String> smallList = uris.subList(i, Math.min(i + 100, uris.size()));
+                JsonArray jsonArray = new JsonArray();
+                for (String uri : smallList) {
+                    jsonArray.add(uri);
+                }
+                this.spotify.addTracksToPlaylist(playlistId, jsonArray).build().execute();
+            }
 
             // print to console
             System.out.println("> created Groupify playlist with id " + playlistId);
@@ -441,17 +451,15 @@ public class PlaylistGenerator {
     }
 
     // returns an array of URIs given a list of tracks
-    private JsonArray getUris(Set<Track> tracks) {
-        JsonArray uris = new JsonArray();
+    private List<String> getUris(Set<Track> tracks) {
+        List<String> uris = new ArrayList<>();
         Iterator<Track> iter = tracks.iterator();
-        int i = 0;
         while (iter.hasNext()) {
             Track t = iter.next();
             if (t == null) {
                 throw new IllegalStateException("track is null");
             }
             uris.add(t.getUri());
-            i++;
         }
         return uris;
     }

@@ -193,6 +193,7 @@ public class GroupifyUser {
     // prints all the information we have on a user
     public void printInfo() {
         // name
+        System.out.println();
         System.out.println(">>> " + this.getDisplayName() + "'s information: ");
 
         // playlist and library info

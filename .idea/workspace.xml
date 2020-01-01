@@ -35,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2178">
@@ -51,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
+            <state relative-caret-position="759">
               <caret line="51" column="42" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,15 +68,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="270" column="9" lean-forward="true" selection-start-line="270" selection-start-column="9" selection-end-line="270" selection-end-column="9" />
+            <state relative-caret-position="646">
+              <caret line="153" column="54" selection-start-line="153" selection-start-column="54" selection-end-line="153" selection-end-column="54" />
               <folding>
                 <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
                 <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
+                <element signature="method#getSharedTopArtistsSongs#0;class#PlaylistGenerator#0" />
+                <element signature="method#getSharedTopGenresSongs#0;class#PlaylistGenerator#0" />
+                <element signature="method#getTopSongs#0;class#PlaylistGenerator#0" />
+                <element signature="method#getUris#0;class#PlaylistGenerator#0" />
                 <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
+                <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
+                <element signature="method#unsimplify#0;class#PlaylistGenerator#0" />
+                <element signature="method#unsimplify#1;class#PlaylistGenerator#0" />
               </folding>
             </state>
           </provider>
@@ -127,7 +134,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1272" />
     <option name="width" value="1297" />
     <option name="height" value="1398" />
@@ -200,7 +207,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577835373767" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577836830276" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -279,18 +286,17 @@
       <workItem from="1577672453410" duration="6819000" />
       <workItem from="1577733896120" duration="1742000" />
       <workItem from="1577736690127" duration="2345000" />
-      <workItem from="1577833460472" duration="1873000" />
+      <workItem from="1577833460472" duration="3261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59117000" />
+    <option name="totallyTimeSpent" value="60505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1018" y="0" width="1037" height="1118" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2811861" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28045034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -300,7 +306,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" x="1" y="30" width="1023" height="1081" id="Run" order="2" type="WINDOWED" weight="0.7588235" />
+      <window_info active="true" anchor="bottom" x="1" y="30" width="1023" height="1081" id="Run" order="2" type="WINDOWED" visible="true" weight="0.7588235" />
       <window_info anchor="bottom" x="1" y="30" width="1023" height="1081" id="Debug" order="3" type="WINDOWED" weight="0.42046607" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -424,24 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="51" column="42" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5141#5142#0" expanded="true" />
-            <element signature="e#5175#5176#0" expanded="true" />
-            <element signature="e#5222#5223#0" expanded="true" />
-            <element signature="e#5251#5252#0" expanded="true" />
-            <element signature="e#5305#5306#0" expanded="true" />
-            <element signature="e#5359#5360#0" expanded="true" />
-            <element signature="e#5416#5417#0" expanded="true" />
-            <element signature="e#5472#5473#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -463,6 +451,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.6/1b9adea7bbe0b251818f42fde0bd2988d7e5f20a/gson-2.8.6-sources.jar!/com/google/gson/JsonParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="153" column="54" selection-start-line="153" selection-start-column="54" selection-end-line="153" selection-end-column="54" />
+          <folding>
+            <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
+            <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
+            <element signature="method#getSharedTopArtistsSongs#0;class#PlaylistGenerator#0" />
+            <element signature="method#getSharedTopGenresSongs#0;class#PlaylistGenerator#0" />
+            <element signature="method#getTopSongs#0;class#PlaylistGenerator#0" />
+            <element signature="method#getUris#0;class#PlaylistGenerator#0" />
+            <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
+            <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
+            <element signature="method#unsimplify#0;class#PlaylistGenerator#0" />
+            <element signature="method#unsimplify#1;class#PlaylistGenerator#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="51" column="42" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5141#5142#0" expanded="true" />
+            <element signature="e#5175#5176#0" expanded="true" />
+            <element signature="e#5222#5223#0" expanded="true" />
+            <element signature="e#5251#5252#0" expanded="true" />
+            <element signature="e#5305#5306#0" expanded="true" />
+            <element signature="e#5359#5360#0" expanded="true" />
+            <element signature="e#5416#5417#0" expanded="true" />
+            <element signature="e#5472#5473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2178">
@@ -470,18 +502,6 @@
           <folding>
             <element signature="method#addGuest#0;class#Groupify#0" />
             <element signature="method#authorize#0;class#Groupify#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="270" column="9" lean-forward="true" selection-start-line="270" selection-start-column="9" selection-end-line="270" selection-end-column="9" />
-          <folding>
-            <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
-            <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
-            <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
           </folding>
         </state>
       </provider>
