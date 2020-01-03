@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LOG_FILE_IS_UNDEFINED" beforeDir="false" afterPath="$PROJECT_DIR$/LOG_FILE_IS_UNDEFINED" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Groupify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/Groupify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/GroupifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyParty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PartyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PartyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/PlaylistGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java" afterDir="false" />
-    </list>
+    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -274,7 +259,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578085698459" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578085703082" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -358,12 +343,12 @@
       <workItem from="1577833460472" duration="3740000" />
       <workItem from="1578024711033" duration="3162000" />
       <workItem from="1578036676430" duration="1028000" />
-      <workItem from="1578080615776" duration="5034000" />
+      <workItem from="1578080615776" duration="5124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70208000" />
+    <option name="totallyTimeSpent" value="70298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
