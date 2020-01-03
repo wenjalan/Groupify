@@ -24,6 +24,7 @@ public class PartyManager {
     // registers a new GroupifyParty to this PartyManager
     public void register(GroupifyParty groupifyParty) {
         this.parties.put(groupifyParty.getId(), groupifyParty);
+        System.out.println("> registered new party with id " + groupifyParty.getId());
     }
 
     // unregisters a GroupifyParty from this PartyManager

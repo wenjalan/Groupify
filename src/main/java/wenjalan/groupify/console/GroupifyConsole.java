@@ -8,7 +8,8 @@ public class GroupifyConsole {
         // get a new Groupify instance
         Groupify g = new Groupify(true);
 
-        // todo: do things with it
+        // try making a new party
+
     }
 
 }

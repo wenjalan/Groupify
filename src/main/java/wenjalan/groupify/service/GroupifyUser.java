@@ -18,24 +18,6 @@ public class GroupifyUser {
         // the configuration this Factory is configured with
         private static GroupifyConfiguration configuration = null;
 
-        // the scopes we're using for host users
-        public static final String[] HOST_SCOPES = {
-                "playlist-modify-public",
-                "playlist-read-collaborative",
-                "playlist-read-private",
-                "playlist-modify-private",
-                "user-top-read",
-                "user-library-read",
-        };
-
-        // the scopes we're using for the guest users
-        public static final String[] GUEST_SCOPES = {
-                "playlist-read-collaborative",
-                "playlist-read-private",
-                "user-top-read",
-                "user-library-read",
-        };
-
         // sets the configuration to use when creating GroupifyUsers
         public static void setConfiguration(GroupifyConfiguration config) {
             configuration = config;
@@ -61,9 +43,6 @@ public class GroupifyUser {
                 List<Playlist> playlists = loadPlaylists(api);
                 List<SavedTrack> savedTracks = Arrays.asList(api.getUsersSavedTracks().limit(50).build().execute().getItems());
                 List<String> topGenres = generateTopGenres(topArtists);
-
-                // announce
-                System.out.println("> loaded " + displayName + "'s tastes");
 
                 // return a new GroupifyUser object with that information
                 return new GroupifyUser(

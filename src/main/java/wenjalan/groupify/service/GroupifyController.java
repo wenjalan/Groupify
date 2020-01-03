@@ -43,28 +43,32 @@ public class GroupifyController {
     }
 
     // receives a Spotify Authentication Callback
-    @RequestMapping(value = "/callback")
+    @RequestMapping(value = "api/callback")
     public String callback(
             @RequestParam(value = "code", defaultValue = "") String code,
             @RequestParam(value = "state", defaultValue = "") String state) {
         // if the code or state returned nothing, return an error message
-        if (code.isEmpty() || state.isEmpty()) {
+        if (code.isEmpty()) {
             return "error retrieving code";
         }
-
-        // find which groupifyParty this code belongs to
-        // groupifyParty id == last 4 digits of state
-        String partyId = state.substring(state.length() - 5);
-        GroupifyParty groupifyParty = partyManager.getParty(partyId);
-
-        // if none was found, throw an error
-        if (groupifyParty == null) {
-            return "error retrieving groupifyParty";
+        else if (state.isEmpty()) {
+            return "error retrieving state";
         }
 
-        // otherwise, do nothing because we haven't written this part yet
-        // todo
-        return "thanks, you can close this now";
+        // find the party id and execute the corresponding listener
+        String partyId = state.split(":")[0];
+        for (AuthenticationListener listener : GroupifyService.AUTHENTICATION_LISTENERS) {
+            // if the ids match
+            if (listener.partyId().equals(partyId)) {
+                // execute that listener
+                listener.onAuthenticationSuccess(code, state);
+                // return happy message
+                return "thanks. you can close this now.";
+            }
+        }
+
+        // if no party with the id was found return error
+        return "error retrieving party with id " + partyId;
     }
 
 }
