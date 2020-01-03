@@ -2,10 +2,8 @@ package wenjalan.groupify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Bean;
 
 import java.util.Scanner;
 
@@ -72,6 +70,12 @@ public class Main {
 
         // stop Spring web service
         SpringApplication.exit(c, () -> 0);
+    }
+
+    // callback bean
+    @Bean
+    public PartyManager partyManager() {
+        return PartyManager.getInstance();
     }
 
 }

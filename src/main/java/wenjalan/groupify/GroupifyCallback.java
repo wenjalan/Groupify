@@ -7,33 +7,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GroupifyCallback {
 
-    // the last code returned by a getCode request
-    private static String lastCode = null;
+    // the PartyManager instance
+    private final PartyManager partyManager;
+
+    // constructor
+    public GroupifyCallback(PartyManager partyManager) {
+        this.partyManager = partyManager;
+    }
 
     // receives a Spotify Authentication Callback
     @RequestMapping(value = "/callback")
-    public String getCode(@RequestParam(value = "code", defaultValue = "") String code) {
-        if (code.isEmpty()) {
+    public String callback(
+            @RequestParam(value = "code", defaultValue = "") String code,
+            @RequestParam(value = "state", defaultValue = "") String state) {
+        // if the code or state returned nothing, return an error message
+        if (code.isEmpty() || state.isEmpty()) {
             return "error retrieving code";
         }
-        else {
-            lastCode = code;
-            return "you can close this now";
-        }
-    }
 
-    // returns the last authentication code
-    // returns null if none exists yet
-    public static String getLastCode() {
-        if (lastCode == null || lastCode.isEmpty()) {
-            return null;
+        // find which party this code belongs to
+        // party id == last 4 digits of state
+        String partyId = state.substring(state.length() - 5);
+        Party party = partyManager.getParty(partyId);
+
+        // if none was found, throw an error
+        if (party == null) {
+            return "error retrieving party";
         }
-        else {
-            // delete the code and return it
-            String code = lastCode;
-            lastCode = null;
-            return code;
-        }
+
+        // otherwise, do nothing because we haven't written this part yet
+        // todo
+        return "thanks, you can close this now";
     }
 
 }
