@@ -1,16 +1,10 @@
-package wenjalan.groupify;
+package wenjalan.groupify.service;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.*;
 import com.wrapper.spotify.requests.data.browse.GetRecommendationsRequest;
-import org.apache.tomcat.util.net.TLSClientHelloExtractor;
 
 import java.io.IOException;
 import java.util.*;

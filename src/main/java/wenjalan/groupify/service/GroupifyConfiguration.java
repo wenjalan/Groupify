@@ -1,4 +1,4 @@
-package wenjalan.groupify;
+package wenjalan.groupify.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

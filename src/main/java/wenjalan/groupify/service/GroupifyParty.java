@@ -1,11 +1,11 @@
-package wenjalan.groupify;
+package wenjalan.groupify.service;
 
 import java.util.*;
 
 // represents a party of users
-public class Party {
+public class GroupifyParty {
 
-    // the set of all currently registered Party ids
+    // the set of all currently registered GroupifyParty ids
     private static Set<String> registeredIds = new HashSet<>();
 
     // the host user of this party
@@ -19,7 +19,7 @@ public class Party {
 
     // constructor
     // host: the host user
-    public Party(GroupifyUser host) {
+    public GroupifyParty(GroupifyUser host) {
         this.host = host;
         users = new LinkedList<>();
         id = nextId();
@@ -28,7 +28,7 @@ public class Party {
     // constructor
     // host: the host user
     // guests: the guest users
-    public Party(GroupifyUser host, Iterable<GroupifyUser> guests) {
+    public GroupifyParty(GroupifyUser host, Iterable<GroupifyUser> guests) {
         this(host);
         for (GroupifyUser g : guests) {
             addUser(g);
@@ -45,7 +45,7 @@ public class Party {
         this.users.remove(user);
     }
 
-    // returns the host of this Party
+    // returns the host of this GroupifyParty
     public GroupifyUser getHost() {
         return this.host;
     }
@@ -55,7 +55,7 @@ public class Party {
         return new LinkedList<>(this.users);
     }
 
-    // returns the id of this Party
+    // returns the id of this GroupifyParty
     public String getId() {
         return this.id;
     }
@@ -85,7 +85,7 @@ public class Party {
     }
 
     // unregisters this party, removing its id from the registry and removing all users
-    // should be called whenever a Party is done
+    // should be called whenever a GroupifyParty is done
     public void close() {
         // unregister the id of this party to free up for future parties
         unregisterId(this.id);

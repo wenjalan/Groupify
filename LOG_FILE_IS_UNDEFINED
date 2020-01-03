@@ -1,5 +1,5 @@
-2019-12-30 11:44:09.557  INFO 12308 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 12308 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:44:09.561  INFO 12308 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:44:09.557  INFO 12308 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 12308 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:44:09.561  INFO 12308 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:44:10.884  INFO 12308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:44:10.898  INFO 12308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:44:10.901  INFO 12308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -7,9 +7,9 @@
 2019-12-30 11:44:10.983  INFO 12308 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1376 ms
 2019-12-30 11:44:11.146  INFO 12308 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:44:11.328  INFO 12308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:44:11.331  INFO 12308 --- [main] wenjalan.groupify.Main                   : Started Main in 2.329 seconds (JVM running for 2.753)
-2019-12-30 11:46:13.759  INFO 17868 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 17868 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:46:13.762  INFO 17868 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:44:11.331  INFO 12308 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.329 seconds (JVM running for 2.753)
+2019-12-30 11:46:13.759  INFO 17868 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 17868 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:46:13.762  INFO 17868 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:46:15.105  INFO 17868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:46:15.119  INFO 17868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:46:15.122  INFO 17868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -17,9 +17,9 @@
 2019-12-30 11:46:15.205  INFO 17868 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1395 ms
 2019-12-30 11:46:15.368  INFO 17868 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:46:15.554  INFO 17868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:46:15.556  INFO 17868 --- [main] wenjalan.groupify.Main                   : Started Main in 2.276 seconds (JVM running for 2.716)
-2019-12-30 11:46:55.523  INFO 9392 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 9392 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:46:55.526  INFO 9392 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:46:15.556  INFO 17868 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.276 seconds (JVM running for 2.716)
+2019-12-30 11:46:55.523  INFO 9392 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 9392 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:46:55.526  INFO 9392 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:46:57.178  INFO 9392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:46:57.188  INFO 9392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:46:57.192  INFO 9392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -27,12 +27,12 @@
 2019-12-30 11:46:57.272  INFO 9392 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1695 ms
 2019-12-30 11:46:57.434  INFO 9392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:46:57.624  INFO 9392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:46:57.626  INFO 9392 --- [main] wenjalan.groupify.Main                   : Started Main in 2.645 seconds (JVM running for 3.08)
+2019-12-30 11:46:57.626  INFO 9392 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.645 seconds (JVM running for 3.08)
 2019-12-30 11:47:02.339  INFO 9392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 11:47:02.343  INFO 9392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 11:47:02.351  INFO 9392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2019-12-30 11:48:50.085  INFO 18660 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 18660 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:48:50.087  INFO 18660 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:48:50.085  INFO 18660 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 18660 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:48:50.087  INFO 18660 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:48:51.398  INFO 18660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:48:51.412  INFO 18660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:48:51.416  INFO 18660 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -40,12 +40,12 @@
 2019-12-30 11:48:51.494  INFO 18660 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1354 ms
 2019-12-30 11:48:51.650  INFO 18660 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:48:51.841  INFO 18660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:48:51.844  INFO 18660 --- [main] wenjalan.groupify.Main                   : Started Main in 2.237 seconds (JVM running for 2.665)
+2019-12-30 11:48:51.844  INFO 18660 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.237 seconds (JVM running for 2.665)
 2019-12-30 11:48:57.598  INFO 18660 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 11:48:57.603  INFO 18660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 11:48:57.613  INFO 18660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 11:52:03.285  INFO 19348 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 19348 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:52:03.288  INFO 19348 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:52:03.285  INFO 19348 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 19348 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:52:03.288  INFO 19348 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:52:04.630  INFO 19348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:52:04.643  INFO 19348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:52:04.647  INFO 19348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -53,12 +53,12 @@
 2019-12-30 11:52:04.727  INFO 19348 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1388 ms
 2019-12-30 11:52:04.889  INFO 19348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:52:05.070  INFO 19348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:52:05.072  INFO 19348 --- [main] wenjalan.groupify.Main                   : Started Main in 2.269 seconds (JVM running for 2.692)
+2019-12-30 11:52:05.072  INFO 19348 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.269 seconds (JVM running for 2.692)
 2019-12-30 11:52:08.326  INFO 19348 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 11:52:08.330  INFO 19348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 11:52:08.340  INFO 19348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2019-12-30 11:52:53.103  INFO 3300 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 3300 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 11:52:53.105  INFO 3300 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 11:52:53.103  INFO 3300 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 3300 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 11:52:53.105  INFO 3300 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 11:52:54.424  INFO 3300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 11:52:54.438  INFO 3300 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 11:52:54.443  INFO 3300 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -66,13 +66,13 @@
 2019-12-30 11:52:54.528  INFO 3300 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1361 ms
 2019-12-30 11:52:54.688  INFO 3300 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 11:52:54.875  INFO 3300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 11:52:54.878  INFO 3300 --- [main] wenjalan.groupify.Main                   : Started Main in 2.254 seconds (JVM running for 2.675)
+2019-12-30 11:52:54.878  INFO 3300 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.254 seconds (JVM running for 2.675)
 2019-12-30 11:52:57.284  INFO 3300 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 11:52:57.288  INFO 3300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 11:52:57.300  INFO 3300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
 2019-12-30 11:53:28.204  INFO 3300 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 12:12:45.502  INFO 17240 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 17240 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:12:45.505  INFO 17240 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:12:45.502  INFO 17240 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 17240 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:12:45.505  INFO 17240 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:12:46.885  INFO 17240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:12:46.900  INFO 17240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:12:46.909  INFO 17240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -80,12 +80,12 @@
 2019-12-30 12:12:46.990  INFO 17240 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1438 ms
 2019-12-30 12:12:47.163  INFO 17240 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:12:47.360  INFO 17240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:12:47.363  INFO 17240 --- [main] wenjalan.groupify.Main                   : Started Main in 2.54 seconds (JVM running for 3.064)
+2019-12-30 12:12:47.363  INFO 17240 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.54 seconds (JVM running for 3.064)
 2019-12-30 12:13:52.954  INFO 17240 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:13:52.960  INFO 17240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:13:52.976  INFO 17240 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
-2019-12-30 12:20:04.584  INFO 19828 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 19828 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:20:04.587  INFO 19828 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:20:04.584  INFO 19828 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 19828 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:20:04.587  INFO 19828 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:20:06.022  INFO 19828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:20:06.040  INFO 19828 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:20:06.043  INFO 19828 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -93,13 +93,13 @@
 2019-12-30 12:20:06.136  INFO 19828 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1495 ms
 2019-12-30 12:20:06.311  INFO 19828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:20:06.519  INFO 19828 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:20:06.521  INFO 19828 --- [main] wenjalan.groupify.Main                   : Started Main in 2.531 seconds (JVM running for 3.129)
+2019-12-30 12:20:06.521  INFO 19828 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.531 seconds (JVM running for 3.129)
 2019-12-30 12:20:10.425  INFO 19828 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:20:10.431  INFO 19828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:20:10.445  INFO 19828 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
 2019-12-30 12:34:13.589  INFO 19828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 12:35:03.945  INFO 22312 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 22312 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:35:03.948  INFO 22312 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:35:03.945  INFO 22312 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 22312 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:35:03.948  INFO 22312 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:35:05.444  INFO 22312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:35:05.478  INFO 22312 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:35:05.486  INFO 22312 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -107,12 +107,12 @@
 2019-12-30 12:35:05.652  INFO 22312 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1653 ms
 2019-12-30 12:35:05.826  INFO 22312 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:35:06.023  INFO 22312 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:35:06.025  INFO 22312 --- [main] wenjalan.groupify.Main                   : Started Main in 2.618 seconds (JVM running for 3.177)
+2019-12-30 12:35:06.025  INFO 22312 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.618 seconds (JVM running for 3.177)
 2019-12-30 12:35:08.656  INFO 22312 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:35:08.661  INFO 22312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:35:08.681  INFO 22312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
-2019-12-30 12:37:55.484  INFO 15148 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 15148 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:37:55.486  INFO 15148 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:37:55.484  INFO 15148 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 15148 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:37:55.486  INFO 15148 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:37:57.029  INFO 15148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:37:57.046  INFO 15148 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:37:57.052  INFO 15148 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -120,12 +120,12 @@
 2019-12-30 12:37:57.213  INFO 15148 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1663 ms
 2019-12-30 12:37:57.428  INFO 15148 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:37:57.684  INFO 15148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:37:57.687  INFO 15148 --- [main] wenjalan.groupify.Main                   : Started Main in 2.938 seconds (JVM running for 3.435)
+2019-12-30 12:37:57.687  INFO 15148 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.938 seconds (JVM running for 3.435)
 2019-12-30 12:38:02.256  INFO 15148 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:38:02.256  INFO 15148 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:38:02.266  INFO 15148 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2019-12-30 12:38:19.182  INFO 20740 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 20740 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:38:19.186  INFO 20740 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:38:19.182  INFO 20740 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 20740 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:38:19.186  INFO 20740 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:38:20.588  INFO 20740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:38:20.603  INFO 20740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:38:20.607  INFO 20740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -133,13 +133,13 @@
 2019-12-30 12:38:20.725  INFO 20740 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1488 ms
 2019-12-30 12:38:20.896  INFO 20740 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:38:21.111  INFO 20740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:38:21.114  INFO 20740 --- [main] wenjalan.groupify.Main                   : Started Main in 2.434 seconds (JVM running for 2.9)
+2019-12-30 12:38:21.114  INFO 20740 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.434 seconds (JVM running for 2.9)
 2019-12-30 12:38:25.208  INFO 20740 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:38:25.214  INFO 20740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:38:25.226  INFO 20740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
 2019-12-30 12:41:07.585  INFO 20740 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 12:41:12.289  INFO 12092 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS15 with PID 12092 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
-2019-12-30 12:41:12.291  INFO 12092 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 12:41:12.289  INFO 12092 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS15 with PID 12092 (C:\GitHub\Groupify\build\classes\java\main started by AlanW in C:\GitHub\Groupify)
+2019-12-30 12:41:12.291  INFO 12092 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 12:41:13.668  INFO 12092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 12:41:13.686  INFO 12092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 12:41:13.691  INFO 12092 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -147,12 +147,12 @@
 2019-12-30 12:41:13.812  INFO 12092 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1474 ms
 2019-12-30 12:41:13.990  INFO 12092 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 12:41:14.205  INFO 12092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 12:41:14.209  INFO 12092 --- [main] wenjalan.groupify.Main                   : Started Main in 2.473 seconds (JVM running for 3.06)
+2019-12-30 12:41:14.209  INFO 12092 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.473 seconds (JVM running for 3.06)
 2019-12-30 12:41:16.958  INFO 12092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 12:41:16.963  INFO 12092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 12:41:16.977  INFO 12092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2019-12-30 20:10:37.218  INFO 10036 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 10036 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:10:37.223  INFO 10036 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:10:37.218  INFO 10036 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 10036 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:10:37.223  INFO 10036 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:10:38.680  INFO 10036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:10:38.691  INFO 10036 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:10:38.691  INFO 10036 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -160,15 +160,15 @@
 2019-12-30 20:10:38.778  INFO 10036 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1445 ms
 2019-12-30 20:10:38.938  INFO 10036 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:10:39.138  INFO 10036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:10:39.138  INFO 10036 --- [main] wenjalan.groupify.Main                   : Started Main in 2.632 seconds (JVM running for 3.328)
+2019-12-30 20:10:39.138  INFO 10036 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.632 seconds (JVM running for 3.328)
 2019-12-30 20:10:43.367  INFO 10036 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:10:43.367  INFO 10036 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:10:43.373  INFO 10036 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
 2019-12-30 20:13:26.496  INFO 10036 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 20:33:33.188  INFO 17052 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 17052 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:33:33.190  INFO 17052 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
-2019-12-30 20:34:07.649  INFO 7912 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 7912 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:34:07.651  INFO 7912 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:33:33.188  INFO 17052 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 17052 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:33:33.190  INFO 17052 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:34:07.649  INFO 7912 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 7912 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:34:07.651  INFO 7912 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:34:09.189  INFO 7912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:34:09.199  INFO 7912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:34:09.199  INFO 7912 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -176,13 +176,13 @@
 2019-12-30 20:34:09.315  INFO 7912 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1586 ms
 2019-12-30 20:34:09.511  INFO 7912 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:34:09.801  INFO 7912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:34:09.803  INFO 7912 --- [main] wenjalan.groupify.Main                   : Started Main in 2.659 seconds (JVM running for 3.116)
+2019-12-30 20:34:09.803  INFO 7912 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.659 seconds (JVM running for 3.116)
 2019-12-30 20:34:12.244  INFO 7912 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:34:12.245  INFO 7912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:34:12.250  INFO 7912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
 2019-12-30 20:36:07.641  INFO 7912 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 20:36:13.074  INFO 3820 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 3820 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:36:13.078  INFO 3820 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:36:13.074  INFO 3820 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 3820 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:36:13.078  INFO 3820 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:36:14.554  INFO 3820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:36:14.565  INFO 3820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:36:14.566  INFO 3820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -190,12 +190,12 @@
 2019-12-30 20:36:14.667  INFO 3820 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1502 ms
 2019-12-30 20:36:14.847  INFO 3820 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:36:15.026  INFO 3820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:36:15.028  INFO 3820 --- [main] wenjalan.groupify.Main                   : Started Main in 2.478 seconds (JVM running for 2.912)
+2019-12-30 20:36:15.028  INFO 3820 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.478 seconds (JVM running for 2.912)
 2019-12-30 20:36:19.730  INFO 3820 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:36:19.730  INFO 3820 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:36:19.735  INFO 3820 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 20:44:07.727  INFO 1096 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 1096 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:44:07.727  INFO 1096 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:44:07.727  INFO 1096 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 1096 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:44:07.727  INFO 1096 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:44:09.170  INFO 1096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:44:09.181  INFO 1096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:44:09.181  INFO 1096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -203,12 +203,12 @@
 2019-12-30 20:44:09.268  INFO 1096 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1481 ms
 2019-12-30 20:44:09.416  INFO 1096 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:44:09.610  INFO 1096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:44:09.612  INFO 1096 --- [main] wenjalan.groupify.Main                   : Started Main in 2.359 seconds (JVM running for 2.783)
+2019-12-30 20:44:09.612  INFO 1096 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.359 seconds (JVM running for 2.783)
 2019-12-30 20:44:13.763  INFO 1096 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:44:13.764  INFO 1096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:44:13.771  INFO 1096 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-12-30 20:46:04.926  INFO 16424 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 16424 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:46:04.926  INFO 16424 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:46:04.926  INFO 16424 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 16424 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:46:04.926  INFO 16424 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:46:06.436  INFO 16424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:46:06.448  INFO 16424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:46:06.448  INFO 16424 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -216,12 +216,12 @@
 2019-12-30 20:46:06.544  INFO 16424 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1549 ms
 2019-12-30 20:46:06.715  INFO 16424 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:46:06.906  INFO 16424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:46:06.906  INFO 16424 --- [main] wenjalan.groupify.Main                   : Started Main in 2.537 seconds (JVM running for 3.072)
+2019-12-30 20:46:06.906  INFO 16424 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.537 seconds (JVM running for 3.072)
 2019-12-30 20:46:37.526  INFO 16424 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:46:37.526  INFO 16424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:46:37.534  INFO 16424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-12-30 20:48:28.793  INFO 6964 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 6964 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:48:28.793  INFO 6964 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:48:28.793  INFO 6964 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 6964 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:48:28.793  INFO 6964 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:48:30.329  INFO 6964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:48:30.334  INFO 6964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:48:30.334  INFO 6964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -229,12 +229,12 @@
 2019-12-30 20:48:30.434  INFO 6964 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1575 ms
 2019-12-30 20:48:30.583  INFO 6964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:48:30.763  INFO 6964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:48:30.763  INFO 6964 --- [main] wenjalan.groupify.Main                   : Started Main in 2.46 seconds (JVM running for 2.915)
+2019-12-30 20:48:30.763  INFO 6964 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.46 seconds (JVM running for 2.915)
 2019-12-30 20:48:34.537  INFO 6964 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:48:34.537  INFO 6964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:48:34.543  INFO 6964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2019-12-30 20:54:11.430  INFO 372 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 372 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 20:54:11.433  INFO 372 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 20:54:11.430  INFO 372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 372 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 20:54:11.433  INFO 372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 20:54:12.844  INFO 372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 20:54:12.856  INFO 372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 20:54:12.856  INFO 372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -242,12 +242,12 @@
 2019-12-30 20:54:12.948  INFO 372 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1453 ms
 2019-12-30 20:54:13.122  INFO 372 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 20:54:13.296  INFO 372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 20:54:13.299  INFO 372 --- [main] wenjalan.groupify.Main                   : Started Main in 2.386 seconds (JVM running for 2.839)
+2019-12-30 20:54:13.299  INFO 372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.386 seconds (JVM running for 2.839)
 2019-12-30 20:54:15.032  INFO 372 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 20:54:15.033  INFO 372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 20:54:15.038  INFO 372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 21:02:47.144  INFO 15736 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 15736 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:02:47.147  INFO 15736 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:02:47.144  INFO 15736 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 15736 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:02:47.147  INFO 15736 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:02:48.532  INFO 15736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:02:48.543  INFO 15736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:02:48.543  INFO 15736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -255,13 +255,13 @@
 2019-12-30 21:02:48.635  INFO 15736 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1422 ms
 2019-12-30 21:02:48.790  INFO 15736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:02:48.974  INFO 15736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:02:48.977  INFO 15736 --- [main] wenjalan.groupify.Main                   : Started Main in 2.359 seconds (JVM running for 2.787)
+2019-12-30 21:02:48.977  INFO 15736 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.359 seconds (JVM running for 2.787)
 2019-12-30 21:02:51.927  INFO 15736 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:02:51.928  INFO 15736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:02:51.935  INFO 15736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
 2019-12-30 21:03:22.708  INFO 15736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2019-12-30 21:03:27.467  INFO 8516 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 8516 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:03:27.471  INFO 8516 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:03:27.467  INFO 8516 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 8516 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:03:27.471  INFO 8516 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:03:28.947  INFO 8516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:03:28.957  INFO 8516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:03:28.957  INFO 8516 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -269,12 +269,12 @@
 2019-12-30 21:03:29.043  INFO 8516 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1515 ms
 2019-12-30 21:03:29.210  INFO 8516 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:03:29.400  INFO 8516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:03:29.402  INFO 8516 --- [main] wenjalan.groupify.Main                   : Started Main in 2.427 seconds (JVM running for 2.87)
+2019-12-30 21:03:29.402  INFO 8516 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.427 seconds (JVM running for 2.87)
 2019-12-30 21:03:31.302  INFO 8516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:03:31.302  INFO 8516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:03:31.309  INFO 8516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-12-30 21:05:30.905  INFO 14344 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 14344 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:05:30.908  INFO 14344 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:05:30.905  INFO 14344 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 14344 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:05:30.908  INFO 14344 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:05:32.298  INFO 14344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:05:32.308  INFO 14344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:05:32.309  INFO 14344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -282,13 +282,13 @@
 2019-12-30 21:05:32.403  INFO 14344 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1430 ms
 2019-12-30 21:05:32.564  INFO 14344 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:05:32.756  INFO 14344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:05:32.758  INFO 14344 --- [main] wenjalan.groupify.Main                   : Started Main in 2.368 seconds (JVM running for 2.81)
+2019-12-30 21:05:32.758  INFO 14344 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.368 seconds (JVM running for 2.81)
 2019-12-30 21:05:35.070  INFO 14344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:05:35.070  INFO 14344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:05:35.076  INFO 14344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
 2019-12-30 21:11:21.154 DEBUG 13256 --- [background-preinit] .h.v.m.ResourceBundleMessageInterpolator : Loaded expression factory via original TCCL
-2019-12-30 21:11:21.281  INFO 13256 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 13256 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:11:21.283  INFO 13256 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:11:21.281  INFO 13256 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 13256 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:11:21.283  INFO 13256 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:11:22.875  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:11:22.884  INFO 13256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:11:22.884  INFO 13256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -296,12 +296,12 @@
 2019-12-30 21:11:22.971  INFO 13256 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1604 ms
 2019-12-30 21:11:23.137  INFO 13256 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:11:23.320  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:11:23.322  INFO 13256 --- [main] wenjalan.groupify.Main                   : Started Main in 2.544 seconds (JVM running for 3.008)
+2019-12-30 21:11:23.322  INFO 13256 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.544 seconds (JVM running for 3.008)
 2019-12-30 21:11:25.150  INFO 13256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:11:25.151  INFO 13256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:11:25.156  INFO 13256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 21:16:56.413  INFO 17372 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 17372 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:16:56.417  INFO 17372 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:16:56.413  INFO 17372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 17372 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:16:56.417  INFO 17372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:16:57.821  INFO 17372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:16:57.831  INFO 17372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:16:57.831  INFO 17372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -309,12 +309,12 @@
 2019-12-30 21:16:57.922  INFO 17372 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1453 ms
 2019-12-30 21:16:58.079  INFO 17372 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:16:58.274  INFO 17372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:16:58.277  INFO 17372 --- [main] wenjalan.groupify.Main                   : Started Main in 2.395 seconds (JVM running for 2.869)
+2019-12-30 21:16:58.277  INFO 17372 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.395 seconds (JVM running for 2.869)
 2019-12-30 21:17:00.248  INFO 17372 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:17:00.248  INFO 17372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:17:00.255  INFO 17372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-12-30 21:22:32.573  INFO 2664 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 2664 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:22:32.577  INFO 2664 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:22:32.573  INFO 2664 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 2664 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:22:32.577  INFO 2664 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:22:34.037  INFO 2664 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:22:34.047  INFO 2664 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:22:34.048  INFO 2664 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -322,12 +322,12 @@
 2019-12-30 21:22:34.141  INFO 2664 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1504 ms
 2019-12-30 21:22:34.303  INFO 2664 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:22:34.505  INFO 2664 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:22:34.507  INFO 2664 --- [main] wenjalan.groupify.Main                   : Started Main in 2.461 seconds (JVM running for 2.915)
+2019-12-30 21:22:34.507  INFO 2664 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.461 seconds (JVM running for 2.915)
 2019-12-30 21:22:41.717  INFO 2664 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:22:41.718  INFO 2664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:22:41.723  INFO 2664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 21:26:34.673  INFO 6712 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 6712 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:26:34.673  INFO 6712 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:26:34.673  INFO 6712 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 6712 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:26:34.673  INFO 6712 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:26:36.068  INFO 6712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:26:36.078  INFO 6712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:26:36.078  INFO 6712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -335,12 +335,12 @@
 2019-12-30 21:26:36.178  INFO 6712 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1445 ms
 2019-12-30 21:26:36.343  INFO 6712 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:26:36.508  INFO 6712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:26:36.508  INFO 6712 --- [main] wenjalan.groupify.Main                   : Started Main in 2.357 seconds (JVM running for 2.785)
+2019-12-30 21:26:36.508  INFO 6712 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.357 seconds (JVM running for 2.785)
 2019-12-30 21:26:38.979  INFO 6712 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-12-30 21:26:38.979  INFO 6712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-12-30 21:26:38.984  INFO 6712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2019-12-30 21:39:40.130  INFO 7380 --- [main] wenjalan.groupify.Main                   : Starting Main on AlanXPS8700 with PID 7380 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
-2019-12-30 21:39:40.133  INFO 7380 --- [main] wenjalan.groupify.Main                   : No active profile set, falling back to default profiles: default
+2019-12-30 21:39:40.130  INFO 7380 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Starting Main on AlanXPS8700 with PID 7380 (C:\GitHub\Groupify\out\production\classes started by wenja in C:\GitHub\Groupify)
+2019-12-30 21:39:40.133  INFO 7380 --- [main] wenjalan.groupify.console.GroupifyConsole                   : No active profile set, falling back to default profiles: default
 2019-12-30 21:39:41.559  INFO 7380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
 2019-12-30 21:39:41.569  INFO 7380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
 2019-12-30 21:39:41.569  INFO 7380 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
@@ -348,4 +348,4 @@
 2019-12-30 21:39:41.652  INFO 7380 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1417 ms
 2019-12-30 21:39:41.825  INFO 7380 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2019-12-30 21:39:41.988  INFO 7380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2019-12-30 21:39:41.991  INFO 7380 --- [main] wenjalan.groupify.Main                   : Started Main in 2.489 seconds (JVM running for 2.936)
+2019-12-30 21:39:41.991  INFO 7380 --- [main] wenjalan.groupify.console.GroupifyConsole                   : Started Main in 2.489 seconds (JVM running for 2.936)

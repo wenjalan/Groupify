@@ -1,4 +1,4 @@
-package wenjalan.groupify;
+package wenjalan.groupify.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class PartyManager {
     private static PartyManager instance = null;
 
     // the Map of party ids to their party instances
-    private Map<String, Party> parties = new HashMap<>();
+    private Map<String, GroupifyParty> parties = new HashMap<>();
 
     // private constructor
     private PartyManager() {
@@ -21,18 +21,18 @@ public class PartyManager {
         }
     }
 
-    // registers a new Party to this PartyManager
-    public void register(Party party) {
-        this.parties.put(party.getId(), party);
+    // registers a new GroupifyParty to this PartyManager
+    public void register(GroupifyParty groupifyParty) {
+        this.parties.put(groupifyParty.getId(), groupifyParty);
     }
 
-    // unregisters a Party from this PartyManager
-    public void unregister(Party p) {
+    // unregisters a GroupifyParty from this PartyManager
+    public void unregister(GroupifyParty p) {
         this.parties.remove(p.getId());
     }
 
-    // returns a Party given a party id
-    public Party getParty(String id) {
+    // returns a GroupifyParty given a party id
+    public GroupifyParty getParty(String id) {
         return this.parties.get(id);
     }
 
