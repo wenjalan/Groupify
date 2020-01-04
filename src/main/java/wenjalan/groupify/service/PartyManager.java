@@ -28,8 +28,10 @@ public class PartyManager {
     }
 
     // unregisters a GroupifyParty from this PartyManager
+    // also calls the close() method on the party
     public void unregister(GroupifyParty p) {
         this.parties.remove(p.getId());
+        p.close();
     }
 
     // returns a GroupifyParty given a party id

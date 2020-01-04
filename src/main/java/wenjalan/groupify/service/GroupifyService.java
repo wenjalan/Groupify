@@ -1,51 +1,34 @@
 package wenjalan.groupify.service;
 
 import com.wrapper.spotify.SpotifyApi;
-import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeRequest;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import java.io.IOException;
 import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import static wenjalan.groupify.service.GroupifyConfiguration.HOST_SCOPES;
+
 // the Groupify service, handles all calls going in and out of the API
 @SpringBootApplication
 public class GroupifyService {
 
+    // the GroupifyService instance
+    public static GroupifyService instance = null;
+
     // the list of Authentication Listeners
     public static final List<AuthenticationListener> AUTHENTICATION_LISTENERS = new LinkedList<>();
 
-    // the scopes we're using for host users
-    public static final String[] HOST_SCOPES = {
-            "playlist-modify-public",
-            "playlist-read-collaborative",
-            "playlist-read-private",
-            "playlist-modify-private",
-            "user-top-read",
-            "user-library-read",
-    };
-
-    // the scopes we're using for the guest users
-    public static final String[] GUEST_SCOPES = {
-            "playlist-read-collaborative",
-            "playlist-read-private",
-            "user-top-read",
-            "user-library-read",
-    };
-
     // the Spring ApplicationContext
-    private ApplicationContext applicationContext;
+    private static ApplicationContext applicationContext;
 
     // the configuration
-    private GroupifyConfiguration configuration;
+    private static GroupifyConfiguration configuration;
 
     // program entrypoint
     public static void main(String[] args) {
@@ -59,21 +42,24 @@ public class GroupifyService {
         GroupifyConfiguration config = GroupifyConfiguration.from(args[0]);
 
         // start Groupify service
-        GroupifyService service = new GroupifyService(config, args);
-
-        // run tests
-        URI authUri = service.createParty();
-        System.out.println(authUri.toString());
+        GroupifyService.start(config, args);
     }
 
-    // constructor
-    public GroupifyService(GroupifyConfiguration config, String[] args) {
-        // start Spring
-        this.applicationContext = SpringApplication.run(GroupifyService.class, args);
+    // starts the Groupify Service
+    public static void start(GroupifyConfiguration config, String[] pArgs) {
+        // announce
+        System.out.println("Starting Groupify prototype 3...");
+        configuration = config;
 
-        // save params
-        this.configuration = config;
-        GroupifyUser.Factory.setConfiguration(this.configuration);
+        // create singleton instance
+        instance = new GroupifyService();
+
+        // set the user factory's config to our config
+        // todo: see if we can do this a better way
+        GroupifyUser.Factory.setConfiguration(configuration);
+
+        // start Spring services
+        applicationContext = SpringApplication.run(GroupifyService.class, pArgs);
     }
 
     // creates a new Party
@@ -135,23 +121,31 @@ public class GroupifyService {
 
     // stops the service
     public void stop() {
-        System.out.println("stopping GroupifyService...");
+        System.out.println("stopping Groupify Service...");
         SpringApplication.exit(applicationContext, () -> 0);
+    }
+
+    // returns the instance of Groupify Service
+    public static GroupifyService getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("Groupify Service has not been initialized, use GroupifyService.start()");
+        }
+        return instance;
     }
 
     /////////////////////////
     // Spring REST Methods //
     /////////////////////////
 
-    // default constructor (for Spring, don't touch)
+    // default constructor
     public GroupifyService() {
-        // empty
+
     }
 
-    // callback bean
+    // GroupifyService bean
     @Bean
-    public PartyManager partyManager() {
-        return PartyManager.getInstance();
+    public static GroupifyService gs() {
+        return getInstance();
     }
 
 }

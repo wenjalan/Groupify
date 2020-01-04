@@ -9,6 +9,24 @@ import java.net.URI;
 // represents a configuration for the Groupify app
 public class GroupifyConfiguration {
 
+    // the scopes we're using for host users
+    public static final String[] HOST_SCOPES = {
+            "playlist-modify-public",
+            "playlist-read-collaborative",
+            "playlist-read-private",
+            "playlist-modify-private",
+            "user-top-read",
+            "user-library-read",
+    };
+
+    // the scopes we're using for the guest users
+    public static final String[] GUEST_SCOPES = {
+            "playlist-read-collaborative",
+            "playlist-read-private",
+            "user-top-read",
+            "user-library-read",
+    };
+
     public final String CLIENT_ID;
     public final String CLIENT_SECRET;
     public final URI REDIRECT_URI;

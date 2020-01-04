@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+
 // GroupifyController handles the HTTP interfacing of the GroupifyService, including authentication callback
 @RestController
 public class GroupifyController {
@@ -12,34 +14,67 @@ public class GroupifyController {
     public enum Action {
 
         // create a new party
-        CREATE,
+        CREATE {
+            // returns: an authorization URI for the user to click on
+            @Override
+            String run() {
+                GroupifyService service = GroupifyService.getInstance();
+                URI uri = service.createParty();
+                return uri.toString();
+            }
+        },
 
         // add a guest to the party
-        ADD,
+        ADD {
+            @Override
+            String run() {
+                return null;
+            }
+        },
 
         // remove a guest from the party
-        REMOVE,
+        REMOVE {
+            @Override
+            String run() {
+                return null;
+            }
+        },
 
         // clear all guests from the party
-        CLEAR,
+        CLEAR {
+            @Override
+            String run() {
+                return null;
+            }
+        },
 
         // get information about a user in the party
-        INFO,
+        INFO {
+            @Override
+            String run() {
+                return null;
+            }
+        },
 
         // purge Groupify playlists from the host's account
-        PURGE,
+        PURGE {
+            @Override
+            String run() {
+                return null;
+            }
+        },
 
         // stops the session with the API
-        STOP,
+        STOP {
+            @Override
+            String run() {
+                return null;
+            }
+        };
 
-    }
+        // methods
+        abstract String run();
 
-    // the PartyManager instance
-    private final PartyManager partyManager;
-
-    // constructor
-    public GroupifyController(PartyManager partyManager) {
-        this.partyManager = partyManager;
     }
 
     // receives a Spotify Authentication Callback
@@ -69,6 +104,27 @@ public class GroupifyController {
 
         // if no party with the id was found return error
         return "error retrieving party with id " + partyId;
+    }
+
+    // receives an Action request
+    @RequestMapping(value = "api/action")
+    public String action(@RequestParam(value = "action", defaultValue = "") String action) {
+        // if no action was specified, return an error
+        if (action.isEmpty()) {
+            return "no action specified, please specify an action";
+        }
+
+        // find which action was requested
+        for (Action a : Action.values()) {
+            // if the action requested matches a command
+            if (action.equalsIgnoreCase(a.name())) {
+                // run it and return its response
+                return a.run();
+            }
+        }
+
+        // if none was found, return an error
+        return "unrecognized action: " + action;
     }
 
 }
