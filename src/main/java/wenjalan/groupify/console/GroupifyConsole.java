@@ -1,10 +1,9 @@
 package wenjalan.groupify.console;
 
 import okhttp3.*;
-import wenjalan.groupify.service.GroupifyController;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.Scanner;
 
 // the console-based client of Groupify, used for development purposes
 public class GroupifyConsole {
@@ -19,28 +18,77 @@ public class GroupifyConsole {
     OkHttpClient client = new OkHttpClient();
 
     // client entry point
-    public static void main(String[] args) throws IOException {
-        GroupifyConsole groupifyConsole = new GroupifyConsole();
-        String response = groupifyConsole.get(GROUPIFY_SERVICE_URL, "action", "create");
-        if (response.isEmpty()) {
-            System.out.println("no response");
+    public static void main(String[] args) {
+        new GroupifyConsole();
+    }
+
+    // constructor
+    public GroupifyConsole() {
+        // new Scanner for console input
+        Scanner console = new Scanner(System.in);
+        boolean running = true;
+        String partyId = "";
+
+        // while the program should run
+        while (running) {
+            System.out.print("> ");
+            String response = console.nextLine();
+            // create
+            if (response.equalsIgnoreCase("create")) {
+                // send request and get response
+                String serverResponse = getAction("create", null);
+                // if it was successful, save the party id
+                if (serverResponse != null) {
+                    // save the party id
+                    partyId = serverResponse.split("&state=")[1].substring(0, 5);
+                    // print the auth URI to the console
+                    System.out.println("host authorization uri: " + serverResponse);
+                }
+
+            }
+            // add
+            else if (response.equalsIgnoreCase("add")) {
+                // send request and get response
+                String serverResponse = getAction("add", partyId);
+                // if it was successful, print the auth URI to the console
+                if (serverResponse != null) {
+                    System.out.println("guest authorization uri: " + serverResponse);
+                }
+            }
+            // make
+            else if (response.equalsIgnoreCase("make")) {
+                String serverResponse = getAction("make", partyId);
+                if (Boolean.parseBoolean(serverResponse)) {
+                    System.out.println("playlist created successfully");
+                }
+                else {
+                    System.out.println("playlist wasn't created, an error occured");
+                }
+            }
+            // quit
+            else if (response.equalsIgnoreCase("quit")) {
+                running = false;
+            }
+            // not recognized
+            else {
+                System.out.println("command not recognized: " + response);
+            }
         }
-        else {
-            System.out.println(response);
-        }
-        String partyId = response.split("&state=")[1].substring(0, 5);
-        System.out.println("party id: " + partyId);
     }
 
     // get
-    private String get(String url, String name, String value) throws IOException {
-        HttpUrl req_url = HttpUrl.parse(url).newBuilder()
-                .addQueryParameter(name, value)
+    private String getAction(String action, String partyId) {
+        HttpUrl req_url = HttpUrl.parse(GROUPIFY_SERVICE_URL).newBuilder()
+                .addQueryParameter("action", action)
+                .addQueryParameter("party", partyId)
                 .build();
         Request request = new Request.Builder().url(req_url).build();
-        System.out.println("request: " + request.url());
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
+        } catch (IOException e) {
+            System.err.println("error sending request: " + e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
 

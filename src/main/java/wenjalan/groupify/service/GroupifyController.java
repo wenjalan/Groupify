@@ -17,7 +17,7 @@ public class GroupifyController {
         CREATE {
             // returns: an authorization URI for the user to click on
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 GroupifyService service = GroupifyService.getInstance();
                 URI uri = service.createParty();
                 return uri.toString();
@@ -27,15 +27,17 @@ public class GroupifyController {
         // add a guest to the party
         ADD {
             @Override
-            String run() {
-                return null;
+            String run(GroupifyParty party) {
+                GroupifyService service = GroupifyService.getInstance();
+                URI uri = service.addUserToParty(party);
+                return uri.toString();
             }
         },
 
         // remove a guest from the party
         REMOVE {
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 return null;
             }
         },
@@ -43,7 +45,7 @@ public class GroupifyController {
         // clear all guests from the party
         CLEAR {
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 return null;
             }
         },
@@ -51,15 +53,23 @@ public class GroupifyController {
         // get information about a user in the party
         INFO {
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 return null;
+            }
+        },
+
+        // makes the playlist on the host's account
+        MAKE {
+            @Override
+            String run(GroupifyParty party) {
+                return "" + GroupifyService.getInstance().makePlaylist(party);
             }
         },
 
         // purge Groupify playlists from the host's account
         PURGE {
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 return null;
             }
         },
@@ -67,13 +77,13 @@ public class GroupifyController {
         // stops the session with the API
         STOP {
             @Override
-            String run() {
+            String run(GroupifyParty party) {
                 return null;
             }
         };
 
         // methods
-        abstract String run();
+        abstract String run(GroupifyParty party);
 
     }
 
@@ -108,7 +118,9 @@ public class GroupifyController {
 
     // receives an Action request
     @RequestMapping(value = "api/action")
-    public String action(@RequestParam(value = "action", defaultValue = "") String action) {
+    public String action(
+            @RequestParam(value = "action", defaultValue = "") String action,
+            @RequestParam(value = "party", defaultValue = "") String party) {
         // if no action was specified, return an error
         if (action.isEmpty()) {
             return "no action specified, please specify an action";
@@ -119,12 +131,25 @@ public class GroupifyController {
             // if the action requested matches a command
             if (action.equalsIgnoreCase(a.name())) {
                 // run it and return its response
-                return a.run();
+                GroupifyParty p = getParty(party);
+
+                // if no party was found and the action wasn't a create
+                if (p == null && !action.equalsIgnoreCase("create")) {
+                    // return an error
+                    return "no party specified, please specify a party";
+                }
+
+                return a.run(p);
             }
         }
 
         // if none was found, return an error
         return "unrecognized action: " + action;
+    }
+
+    // returns a party given a String id
+    private static GroupifyParty getParty(String id) {
+        return PartyManager.getInstance().getParty(id);
     }
 
 }

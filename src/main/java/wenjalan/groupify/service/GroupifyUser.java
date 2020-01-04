@@ -44,8 +44,10 @@ public class GroupifyUser {
                 List<SavedTrack> savedTracks = Arrays.asList(api.getUsersSavedTracks().limit(50).build().execute().getItems());
                 List<String> topGenres = generateTopGenres(topArtists);
 
+
                 // return a new GroupifyUser object with that information
                 return new GroupifyUser(
+                        api,
                         displayName,
                         userId,
                         topTracks,
@@ -112,7 +114,7 @@ public class GroupifyUser {
         }
 
         // returns the top genres of a user given their top artists
-        protected static List<String> generateTopGenres(List<Artist> topArtists) {
+        private static List<String> generateTopGenres(List<Artist> topArtists) {
             // create a map of genres to their occurrences
             Map<String, Integer> genres = new TreeMap<>();
 
@@ -158,6 +160,9 @@ public class GroupifyUser {
     // the number of top artists to retrieve
     public static final int TOP_ARTISTS_TO_RETRIEVE = 50;
 
+    // the Spotify API instance of this user
+    private SpotifyApi apiInstance;
+
     // the display name of this user
     private String displayName;
 
@@ -181,7 +186,8 @@ public class GroupifyUser {
     private List<SavedTrack> savedTracks;
 
     // constructor
-    private GroupifyUser(String displayName, String userId, List<Track> topTracks, List<Artist> topArtists, List<String> topGenres, List<Playlist> playlists, List<SavedTrack> savedTracks) {
+    private GroupifyUser(SpotifyApi api, String displayName, String userId, List<Track> topTracks, List<Artist> topArtists, List<String> topGenres, List<Playlist> playlists, List<SavedTrack> savedTracks) {
+        this.apiInstance = api;
         this.displayName = displayName;
         this.userId = userId;
         this.topTracks = topTracks;
@@ -189,6 +195,11 @@ public class GroupifyUser {
         this.topGenres = topGenres;
         this.playlists = playlists;
         this.savedTracks = savedTracks;
+    }
+
+    // apiInstance
+    public SpotifyApi getApiInstance() {
+        return this.apiInstance;
     }
 
     // displayName

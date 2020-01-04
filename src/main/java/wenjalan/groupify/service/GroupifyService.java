@@ -1,7 +1,9 @@
 package wenjalan.groupify.service;
 
 import com.wrapper.spotify.SpotifyApi;
+import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
+import org.apache.http.auth.AUTH;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
+import static wenjalan.groupify.service.GroupifyConfiguration.GUEST_SCOPES;
 import static wenjalan.groupify.service.GroupifyConfiguration.HOST_SCOPES;
 
 // the Groupify service, handles all calls going in and out of the API
@@ -94,12 +97,15 @@ public class GroupifyService {
             public void onAuthenticationSuccess(String code, String state) {
                 // check that the state makes sense
                 if (!startState.equals(state)) {
-                    throw new IllegalStateException("state mismatch");
+                    throw new IllegalStateException("state mismatch when authenticating host user");
                 }
 
                 // once authenticated, get the user and form a new party
                 GroupifyUser host = GroupifyUser.Factory.createUser(code, true);
                 partyBuilder.build(host);
+
+                // detach this listener
+                AUTHENTICATION_LISTENERS.remove(this);
             }
 
             @Override
@@ -117,6 +123,81 @@ public class GroupifyService {
 
         // return the uri
         return uri;
+    }
+
+    // adds a new user to the specified Party
+    // post (before authentication): a valid authentication URI for which the guest is to log in with
+    // post (after authentication): the Party object is updated with the associated guest
+    // returns: an authentication URI for the guest to log in with
+    public URI addUserToParty(final GroupifyParty party) {
+        // get a Guest Spotify API instance
+        SpotifyApi api = new SpotifyApi.Builder()
+                .setClientId(configuration.GUEST_ID)
+                .setClientSecret(configuration.GUEST_SECRET)
+                .setRedirectUri(configuration.REDIRECT_URI)
+                .build();
+
+        // create a state to identify this request with
+        final String startState = party.getId() + ":" + UUID.randomUUID().toString();
+
+        // ask for an authorization code from it
+        AuthorizationCodeUriRequest request = api.authorizationCodeUri()
+                .state(startState)
+                .scope(String.join(",", GUEST_SCOPES))
+                .build();
+
+        // get the URI to return
+        final URI uri = request.execute();
+
+        // attach a new listener
+        AuthenticationListener listener = new AuthenticationListener() {
+            @Override
+            public void onAuthenticationSuccess(String code, String state) {
+                // if the states don't match, complain
+                if (!startState.equalsIgnoreCase(state)) {
+                    throw new IllegalStateException("state mismatch when authenticating guest user");
+                }
+
+                // once authenticated, add the user to the party
+                GroupifyUser user = GroupifyUser.Factory.createUser(code, false);
+                party.addUser(user);
+
+                // detach this listener
+                AUTHENTICATION_LISTENERS.remove(this);
+            }
+
+            @Override
+            public void onAuthenticationFailure(String message) {
+                System.err.println("error authenticating guest: " + message);
+            }
+
+            @Override
+            public String partyId() {
+                return party.getId();
+            }
+        };
+        AUTHENTICATION_LISTENERS.add(listener);
+
+        // return the URI
+        return uri;
+    }
+
+    // creates the playlist on the host user's account
+    // post: a new Groupify Playlist on the host user's account
+    public boolean makePlaylist(GroupifyParty party) {
+        // get a Playlist Generator for this Party
+        PlaylistGenerator generator = new PlaylistGenerator(party, true);
+
+        // make the playlist
+        Playlist playlist = generator.createPlaylist();
+
+        // return if it worked or not
+        if (playlist == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     // stops the service

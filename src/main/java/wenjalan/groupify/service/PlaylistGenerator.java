@@ -31,20 +31,15 @@ public class PlaylistGenerator {
     public static final int MAX_PLAYLIST_SIZE = 300;
 
     // the Set of Users to generate a playlist for
-    private Set<GroupifyUser> users;
+    private List<GroupifyUser> users;
 
     // debug constructor
     // spotify: the (authenticated) API to create the playlist with
     // users: the users the playlist is to be based on
-    public PlaylistGenerator(SpotifyApi spotify, Set<GroupifyUser> users, boolean debugMode) {
-        this.spotify = spotify;
-        this.users = users;
+    public PlaylistGenerator(GroupifyParty party, boolean debugMode) {
+        this.spotify = party.getHost().getApiInstance();
+        this.users = party.getUsers();
         this.DEBUG_MODE = debugMode;
-    }
-
-    // constructor
-    public PlaylistGenerator(SpotifyApi spotify, Set<GroupifyUser> users) {
-        this(spotify, users, false);
     }
 
     // creates a playlist based off the users' tastes
@@ -191,7 +186,7 @@ public class PlaylistGenerator {
     // 1.
     // returns the shared top songs of a Set of GroupifyUsers
     // threshold: the number of users that must have a song in their top tracks for it to be considered
-    private List<Track> getSharedTopSongs(Set<GroupifyUser> users, int threshold) {
+    private List<Track> getSharedTopSongs(List<GroupifyUser> users, int threshold) {
         // keep track of all the songs we've seen (so we don't call the API more times than we have to)
         Map<String, Track> trackLibrary = new HashMap<>();
 
@@ -240,7 +235,7 @@ public class PlaylistGenerator {
     // returns the top songs of a Set of GroupifyUsers whose artist is a top artist for <threshold> users
     // for songs with multiple artists, checks if any artist on the song is a top artist for <threshold> users
     // threshold: the number of users that must share an artist for a track to be considered
-    private List<Track> getSharedTopArtistsSongs(Set<GroupifyUser> users, int threshold) {
+    private List<Track> getSharedTopArtistsSongs(List<GroupifyUser> users, int threshold) {
         // the list to return
         List<Track> songs = new ArrayList<>();
 
@@ -302,7 +297,7 @@ public class PlaylistGenerator {
     // 3.
     // returns the top songs of a set of GroupifyUsers whose artist contains genres which are top genres for all users
     // threshold: the number of users that must share a specific genre for it to be considered
-    private List<Track> getSharedTopGenresSongs(Set<GroupifyUser> users, int threshold) {
+    private List<Track> getSharedTopGenresSongs(List<GroupifyUser> users, int threshold) {
         // the list of tracks to return
         List<Track> songs = new ArrayList<>();
 
@@ -431,7 +426,7 @@ public class PlaylistGenerator {
 
 
     // returns a Map of the top songs of a set of users
-    private Map<String, Track> getTopSongs(Set<GroupifyUser> users) {
+    private Map<String, Track> getTopSongs(List<GroupifyUser> users) {
         Map<String, Track> allSongs = new HashMap<>();
         // get everyone's top songs together
         for (GroupifyUser user : users) {
@@ -447,7 +442,7 @@ public class PlaylistGenerator {
     }
 
     // returns an array of URIs given a list of tracks
-    private List<String> getUris(Set<Track> tracks) {
+    private List<String> getUris(Iterable<Track> tracks) {
         List<String> uris = new ArrayList<>();
         Iterator<Track> iter = tracks.iterator();
         while (iter.hasNext()) {

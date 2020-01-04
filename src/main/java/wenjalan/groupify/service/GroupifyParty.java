@@ -65,6 +65,9 @@ public class GroupifyParty {
         this.users = new LinkedList<>();
         this.id = id;
         PartyManager.getInstance().register(this);
+
+        // add the host to their own party
+        addUser(host);
     }
 
     // adds a user to this party
