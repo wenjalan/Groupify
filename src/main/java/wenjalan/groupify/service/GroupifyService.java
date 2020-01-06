@@ -1,6 +1,7 @@
 package wenjalan.groupify.service;
 
 import com.wrapper.spotify.SpotifyApi;
+import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
 import org.apache.http.auth.AUTH;
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,7 +53,7 @@ public class GroupifyService {
     // starts the Groupify Service
     public static void start(GroupifyConfiguration config, String[] pArgs) {
         // announce
-        System.out.println("Starting Groupify prototype 3...");
+        System.out.println("Starting Groupify prototype 3 (1/5/2020) ...");
         configuration = config;
 
         // create singleton instance
@@ -182,11 +184,72 @@ public class GroupifyService {
         return uri;
     }
 
+    // removes a user from the specified party
+    // post: if a user with the given user id is found, they will be removed from the party
+    // returns: whether or not the operation was successful
+    // todo: make an api mapping in GroupifyController for this method: REMOVE
+    public boolean removeUserFromParty(GroupifyParty party, String userId) {
+        // find the user to remove
+        for (GroupifyUser user : party.getUsers()) {
+            // if this is the user
+            if (user.getUserId().equals(userId)) {
+                // remove them from the party
+                party.removeUser(user);
+                // return success
+                return true;
+            }
+        }
+        // return false, user not found
+        return false;
+    }
+
+    // removes all users from the current party, except for the host
+    // post: the only user in the party is the host
+    public void clearParty(GroupifyParty party) {
+        // remove each user, unless they're the host
+        for (GroupifyUser user : party.getUsers()) {
+            // if they're not the host, remove them
+            if (!user.isHost()) {
+                party.removeUser(user);
+            }
+        }
+    }
+
+    // removes all playlists named Groupify Playlist from the host's account
+    // pre: user is a host user
+    // post: all playlists named Groupify Playlist are unfollowed on the host's account
+    public boolean purgePlaylists(GroupifyUser user) {
+        // check that we have a host user
+        if (!user.isHost()) {
+            // complain
+            throw new IllegalArgumentException("user is not a host user: " + user.getUserId());
+        }
+
+        // get the all of the user's playlists
+        List<Playlist> playlists = user.getPlaylists();
+
+        // if the playlist's name is "Groupify Playlist", unfollow it
+        for (Playlist p : playlists) {
+            // if the playlist is named Groupify Playlist...
+            if (p.getName().equals("Groupify Playlist")) {
+                // ... unfollow it
+                try {
+                    user.getApiInstance().unfollowPlaylist(p.getId()).build().execute();
+                } catch (SpotifyWebApiException | IOException e) {
+                    System.err.println("error purging playlists from user " + user.getUserId() + "'s account: " + e.getMessage());
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     // creates the playlist on the host user's account
     // post: a new Groupify Playlist on the host user's account
     public boolean makePlaylist(GroupifyParty party) {
         // get a Playlist Generator for this Party
-        PlaylistGenerator generator = new PlaylistGenerator(party, true);
+        PlaylistGenerator generator = new PlaylistGenerator(party, false);
 
         // make the playlist
         Playlist playlist = generator.createPlaylist();

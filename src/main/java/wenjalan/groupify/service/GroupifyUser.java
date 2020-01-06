@@ -48,6 +48,7 @@ public class GroupifyUser {
                 // return a new GroupifyUser object with that information
                 return new GroupifyUser(
                         api,
+                        isHost,
                         displayName,
                         userId,
                         topTracks,
@@ -161,7 +162,10 @@ public class GroupifyUser {
     public static final int TOP_ARTISTS_TO_RETRIEVE = 50;
 
     // the Spotify API instance of this user
-    private SpotifyApi apiInstance;
+    private final SpotifyApi apiInstance;
+
+    // whether or not this user is a host user
+    private final boolean isHost;
 
     // the display name of this user
     private String displayName;
@@ -186,8 +190,9 @@ public class GroupifyUser {
     private List<SavedTrack> savedTracks;
 
     // constructor
-    private GroupifyUser(SpotifyApi api, String displayName, String userId, List<Track> topTracks, List<Artist> topArtists, List<String> topGenres, List<Playlist> playlists, List<SavedTrack> savedTracks) {
+    private GroupifyUser(SpotifyApi api, boolean isHost, String displayName, String userId, List<Track> topTracks, List<Artist> topArtists, List<String> topGenres, List<Playlist> playlists, List<SavedTrack> savedTracks) {
         this.apiInstance = api;
+        this.isHost = isHost;
         this.displayName = displayName;
         this.userId = userId;
         this.topTracks = topTracks;
@@ -237,6 +242,11 @@ public class GroupifyUser {
         return this.savedTracks;
     }
 
+    // isHost
+    public boolean isHost() {
+        return this.isHost;
+    }
+
     // toString
     @Override
     public String toString() {
@@ -279,6 +289,46 @@ public class GroupifyUser {
             System.out.println("> " + i + ": " + genre);
             i++;
         }
+    }
+
+    // returns all the information in printInfo() as a String
+    public String getInfo() {
+        String ret = "";
+        // name
+        ret += ("\n");
+        ret += (">>> " + this.getDisplayName() + "'s information: \n");
+
+        // playlist and library info
+        ret += ("> found " + this.playlists.size() + " playlists\n");
+        ret += ("> found " + this.savedTracks.size() + " saved tracks\n");
+
+        // top tracks
+        ret += ("\n");
+        ret += ("> top songs:\n");
+        int i = 1;
+        for (Track t : this.topTracks) {
+            ret += ("> " + i + ": " + t.getName() + "\n");
+            i++;
+        }
+
+        // top artists
+        ret += ("\n");
+        ret += ("> top artists:\n");
+        i = 1;
+        for (Artist a : this.topArtists) {
+            ret += ("> " + i + ": " + a.getName() + "\n");
+            i++;
+        }
+
+        // top genres
+        ret += ("\n");
+        ret += ("> top genres\n");
+        i = 1;
+        for (String genre : this.topGenres) {
+            ret += ("> " + i + ": " + genre + "\n");
+            i++;
+        }
+        return ret;
     }
 
 }

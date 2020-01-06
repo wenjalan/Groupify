@@ -34,19 +34,13 @@ public class GroupifyController {
             }
         },
 
-        // remove a guest from the party
-        REMOVE {
-            @Override
-            String run(GroupifyParty party) {
-                return null;
-            }
-        },
-
         // clear all guests from the party
         CLEAR {
             @Override
             String run(GroupifyParty party) {
-                return null;
+                GroupifyService service = GroupifyService.getInstance();
+                service.clearParty(party);
+                return "success";
             }
         },
 
@@ -54,7 +48,12 @@ public class GroupifyController {
         INFO {
             @Override
             String run(GroupifyParty party) {
-                return null;
+                // string together each user's information
+                StringBuilder sb = new StringBuilder();
+                for (GroupifyUser user : party.getUsers()) {
+                    sb.append(user.getInfo() + "\n");
+                }
+                return sb.toString();
             }
         },
 
@@ -70,7 +69,18 @@ public class GroupifyController {
         PURGE {
             @Override
             String run(GroupifyParty party) {
-                return null;
+                GroupifyService service = GroupifyService.getInstance();
+                // get the host of this party
+                GroupifyUser host = party.getHost();
+                // purge their playlists
+                boolean success = service.purgePlaylists(host);
+                // return success
+                if (success) {
+                    return "success";
+                }
+                else {
+                    return "an error occurred";
+                }
             }
         },
 
@@ -78,7 +88,12 @@ public class GroupifyController {
         STOP {
             @Override
             String run(GroupifyParty party) {
-                return null;
+                // get the party manager
+                PartyManager manager = PartyManager.getInstance();
+                // deregister this party
+                manager.unregister(party);
+                // return success
+                return "success";
             }
         };
 

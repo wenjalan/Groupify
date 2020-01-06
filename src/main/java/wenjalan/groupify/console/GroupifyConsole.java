@@ -4,12 +4,13 @@ import okhttp3.*;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 // the console-based client of Groupify, used for development purposes
 public class GroupifyConsole {
 
     // Groupify Service url
-    public static final String GROUPIFY_SERVICE_URL = "http://24.16.66.0:1000/api/action";
+    public static final String GROUPIFY_SERVICE_URL = "http://localhost:1000/api/action";
 
     // JSON MediaType
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -29,10 +30,21 @@ public class GroupifyConsole {
         boolean running = true;
         String partyId = "";
 
+        // print commands
+        System.out.println("COMMANDS:\n" +
+                "\tCREATE (create a new party)\n" +
+                "\tADD (add a new user to the party)\n" +
+                "\tMAKE (make the playlist)\n" +
+                "\tCLEAR (remove all users except the host from the party)\n" +
+                "\tPURGE (unfollow all Groupify Playlists on the host's account)\n" +
+                "\tINFO (print information about all users in the party)\n" +
+                "\tQUIT (stop the application)");
+
         // while the program should run
         while (running) {
-            System.out.print("> ");
+            // get the response to parse
             String response = console.nextLine();
+
             // create
             if (response.equalsIgnoreCase("create")) {
                 // send request and get response
@@ -65,8 +77,28 @@ public class GroupifyConsole {
                     System.out.println("playlist wasn't created, an error occured");
                 }
             }
+            // clear
+            else if (response.equalsIgnoreCase("clear")) {
+                String serverResponse = getAction("clear", partyId);
+                System.out.println(serverResponse);
+            }
+            // info
+            else if (response.equalsIgnoreCase("info")) {
+                String serverResponse = getAction("info", partyId);
+                System.out.println(serverResponse);
+            }
+            // purge
+            else if (response.equalsIgnoreCase("purge")) {
+                String serverResponse = getAction("purge", partyId);
+                System.out.println(serverResponse);
+            }
             // quit
             else if (response.equalsIgnoreCase("quit")) {
+                // close the party
+                if (!partyId.isEmpty()) {
+                    String serverResponse = getAction("stop", partyId);
+                    System.out.println(serverResponse);
+                }
                 running = false;
             }
             // not recognized
