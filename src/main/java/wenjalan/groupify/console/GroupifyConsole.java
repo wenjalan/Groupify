@@ -2,7 +2,9 @@ package wenjalan.groupify.console;
 
 import okhttp3.*;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +27,9 @@ public class GroupifyConsole {
 
     // constructor
     public GroupifyConsole() {
+        // announce
+        System.out.println("Starting GroupifyConsole (1/11/2020)");
+
         // new Scanner for console input
         Scanner console = new Scanner(System.in);
         boolean running = true;
@@ -53,8 +58,21 @@ public class GroupifyConsole {
                 if (serverResponse != null) {
                     // save the party id
                     partyId = serverResponse.split("&state=")[1].substring(0, 5);
-                    // print the auth URI to the console
-                    System.out.println("host authorization uri: " + serverResponse);
+
+                    // check if we can open it in the browser
+                    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                        try {
+                            // open in browser
+                            Desktop.getDesktop().browse(URI.create(serverResponse));
+                        } catch (IOException e) {
+                            System.err.println("error opening authentication url in browser: " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        // print the auth URI to the console
+                        System.out.println("host authorization uri: " + serverResponse);
+                    }
                 }
 
             }
@@ -64,7 +82,19 @@ public class GroupifyConsole {
                 String serverResponse = getJoinParty(partyId);
                 // if it was successful, print the auth URI to the console
                 if (serverResponse != null) {
-                    System.out.println("guest authorization uri: " + serverResponse);
+                    // check if we can open it in the browser
+                    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                        try {
+                            // open in browser
+                            Desktop.getDesktop().browse(URI.create(serverResponse));
+                        } catch (IOException e) {
+                            System.err.println("error opening authentication url in browser: " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        System.out.println("guest authorization uri: " + serverResponse);
+                    }
                 }
             }
             // make

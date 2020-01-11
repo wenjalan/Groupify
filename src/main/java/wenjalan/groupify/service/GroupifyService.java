@@ -53,8 +53,13 @@ public class GroupifyService {
     // starts the Groupify Service
     public static void start(GroupifyConfiguration config, String[] pArgs) {
         // announce
-        System.out.println("Starting Groupify prototype 3 (1/5/2020) ...");
+        System.out.println("Starting Groupify prototype 3 (1/11/2020 : build 2) ...");
         configuration = config;
+
+        // see if we're in verbose mode
+        if (config.VERBOSE) {
+            System.out.println("[V] Started in VERBOSE mode...");
+        }
 
         // create singleton instance
         instance = new GroupifyService();
@@ -88,6 +93,7 @@ public class GroupifyService {
         AuthorizationCodeUriRequest request = spotify.authorizationCodeUri()
                 .state(startState)
                 .scope(String.join(",", HOST_SCOPES))
+                .show_dialog(true)
                 .build();
 
         // get the uri
@@ -104,10 +110,15 @@ public class GroupifyService {
 
                 // once authenticated, get the user and form a new party
                 GroupifyUser host = GroupifyUser.Factory.createUser(code, true);
-                partyBuilder.build(host);
+                GroupifyParty p = partyBuilder.build(host);
 
                 // detach this listener
                 AUTHENTICATION_LISTENERS.remove(this);
+
+                // log if in verbose mode
+                if (configuration.VERBOSE) {
+                    System.out.println("[V] Host " + host.getUserId() + " for party " + p.getId() + " authenticated successfully");
+                }
             }
 
             @Override
@@ -122,6 +133,11 @@ public class GroupifyService {
 
         };
         AUTHENTICATION_LISTENERS.add(listener);
+
+        // log if in verbose mode
+        if (configuration.VERBOSE) {
+            System.out.println("[V] Awaiting host authentication for party id " + partyId + "...");
+        }
 
         // return the uri
         return uri;
@@ -146,6 +162,7 @@ public class GroupifyService {
         AuthorizationCodeUriRequest request = api.authorizationCodeUri()
                 .state(startState)
                 .scope(String.join(",", GUEST_SCOPES))
+                .show_dialog(true)
                 .build();
 
         // get the URI to return
@@ -166,6 +183,11 @@ public class GroupifyService {
 
                 // detach this listener
                 AUTHENTICATION_LISTENERS.remove(this);
+
+                // log if in verbose mode
+                if (configuration.VERBOSE) {
+                    System.out.println("[V] Guest " + user.getUserId() + " for party " + party.getId() + " authenticated successfully");
+                }
             }
 
             @Override
@@ -179,6 +201,11 @@ public class GroupifyService {
             }
         };
         AUTHENTICATION_LISTENERS.add(listener);
+
+        // log if in verbose mode
+        if (configuration.VERBOSE) {
+            System.out.println("[V] Awaiting guest authentication for party " + party.getId() + "...");
+        }
 
         // return the URI
         return uri;
@@ -195,10 +222,22 @@ public class GroupifyService {
             if (user.getUserId().equals(userId)) {
                 // remove them from the party
                 party.removeUser(user);
+
+                // log if in verbose mode
+                if (configuration.VERBOSE) {
+                    System.out.println("[V] Removed user " + userId + " from party " + party.getId() + " successfully");
+                }
+
                 // return success
                 return true;
             }
         }
+
+        // log if in verbose mode
+        if (configuration.VERBOSE) {
+            System.out.println("[V] Removal of user " + userId + " from party " + party.getId() + " failed");
+        }
+
         // return false, user not found
         return false;
     }
@@ -212,6 +251,10 @@ public class GroupifyService {
             if (!user.isHost()) {
                 party.removeUser(user);
             }
+        }
+        // log if in verbose
+        if (configuration.VERBOSE) {
+            System.out.println("[V] Cleared " + party.getId() + " successfully");
         }
     }
 
@@ -242,6 +285,12 @@ public class GroupifyService {
                 }
             }
         }
+
+        // logging
+        if (configuration.VERBOSE) {
+            System.out.println("[V] Purged playlists of host user " + user.getUserId() + " successfully");
+        }
+
         return true;
     }
 
@@ -259,6 +308,9 @@ public class GroupifyService {
             return false;
         }
         else {
+            if (configuration.VERBOSE) {
+                System.out.println("[V] Playlist for party " + party.getId() + " created successfully");
+            }
             return true;
         }
     }

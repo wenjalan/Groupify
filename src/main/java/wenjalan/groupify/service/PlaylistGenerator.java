@@ -55,7 +55,7 @@ public class PlaylistGenerator {
     // last. recommended songs to bring the total up to the PLAYLIST_SIZE
     public Playlist createPlaylist() {
         // announce
-        System.out.println("> generating playlist...");
+        // System.out.println("> generating playlist...");
 
         try {
             // get the host's id
@@ -153,8 +153,8 @@ public class PlaylistGenerator {
             }
 
             // print to console
-            System.out.println("> created Groupify playlist with id " + playlistId);
-            System.out.println("> link: " + playlistUrl);
+            // System.out.println("> created Groupify playlist with id " + playlistId);
+            // System.out.println("> link: " + playlistUrl);
 
             // return the playlist
             return playlist;

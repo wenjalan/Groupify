@@ -32,6 +32,7 @@ public class GroupifyConfiguration {
     public final URI REDIRECT_URI;
     public final String GUEST_ID;
     public final String GUEST_SECRET;
+    public final boolean VERBOSE;
 
     // returns a GroupifyConfiguration given a properties file path
     public static GroupifyConfiguration from(String filepath) {
@@ -45,6 +46,7 @@ public class GroupifyConfiguration {
         String guestId = null;
         String guestSecret = null;
         String redirectUri = null;
+        boolean verbose = false;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(properties))) {
             for (String line; (line = br.readLine()) != null;) {
                 // client id property
@@ -67,6 +69,10 @@ public class GroupifyConfiguration {
                 else if (line.startsWith("spotify-redirect-uri=")) {
                     redirectUri = line.replace("spotify-redirect-uri=", "");
                 }
+                // verbose mode
+                else if (line.startsWith("verbose-logging=")) {
+                    verbose = Boolean.parseBoolean(line.replace("verbose-logging=", "").toLowerCase());
+                }
             }
             if (clientId == null || clientSecret == null || guestId == null || guestSecret == null || redirectUri == null) {
                 throw new IOException("error parsing properties");
@@ -76,20 +82,28 @@ public class GroupifyConfiguration {
             e.printStackTrace();
             System.exit(1);
         }
-        return new GroupifyConfiguration(clientId, clientSecret, clientId, clientSecret, URI.create(redirectUri));
+        return new GroupifyConfiguration(clientId, clientSecret, clientId, clientSecret, URI.create(redirectUri), verbose);
     }
 
-    private GroupifyConfiguration(String clientId, String clientSecret, String guestId, String guestSecret, URI redirectUri) {
+    private GroupifyConfiguration(String clientId, String clientSecret, String guestId, String guestSecret, URI redirectUri, boolean verbose) {
         CLIENT_ID = clientId;
         CLIENT_SECRET = clientSecret;
         GUEST_ID = guestId;
         GUEST_SECRET = guestSecret;
         REDIRECT_URI = redirectUri;
+        VERBOSE = verbose;
     }
 
     @Override
     public String toString() {
-        return "CLIENT_ID=" + CLIENT_ID + ",CLIENT_SECRET=" + CLIENT_SECRET + ",REDIRECT_URI=" + REDIRECT_URI;
+        return "GroupifyConfiguration{" +
+                "CLIENT_ID='" + CLIENT_ID + '\'' +
+                ", CLIENT_SECRET='" + CLIENT_SECRET + '\'' +
+                ", REDIRECT_URI=" + REDIRECT_URI +
+                ", GUEST_ID='" + GUEST_ID + '\'' +
+                ", GUEST_SECRET='" + GUEST_SECRET + '\'' +
+                ", VERBOSE=" + VERBOSE +
+                '}';
     }
-
+    
 }
