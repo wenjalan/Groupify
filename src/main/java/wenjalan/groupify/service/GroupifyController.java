@@ -162,6 +162,28 @@ public class GroupifyController {
         return "unrecognized action: " + action;
     }
 
+    // receives a Join party request
+    @RequestMapping(value = "api/join")
+    public String join(
+            @RequestParam(value = "party", defaultValue = "") String party) {
+        // if no party specified, complain
+        if (party.isEmpty()) {
+            return "please specify a party id";
+        }
+
+        // find the party
+        GroupifyParty p = getParty(party);
+
+        // if none found, complain
+        if (p == null) {
+            return "no party with id " + party + " found";
+        }
+
+        // otherwise, return an invite link
+        String url = Action.ADD.run(p);
+        return url;
+    }
+
     // returns a party given a String id
     private static GroupifyParty getParty(String id) {
         return PartyManager.getInstance().getParty(id);

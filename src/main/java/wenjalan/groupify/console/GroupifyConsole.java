@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 // the console-based client of Groupify, used for development purposes
 public class GroupifyConsole {
 
-    // Groupify Service url
-    public static final String GROUPIFY_SERVICE_URL = "http://localhost:1000/api/action";
+    // Groupify Service url local url
+    public static final String GROUPIFY_SERVICE_URL = "http://24.16.66.0:1001/api";
 
     // JSON MediaType
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -61,7 +61,7 @@ public class GroupifyConsole {
             // add
             else if (response.equalsIgnoreCase("add")) {
                 // send request and get response
-                String serverResponse = getAction("add", partyId);
+                String serverResponse = getJoinParty(partyId);
                 // if it was successful, print the auth URI to the console
                 if (serverResponse != null) {
                     System.out.println("guest authorization uri: " + serverResponse);
@@ -108,9 +108,9 @@ public class GroupifyConsole {
         }
     }
 
-    // get
+    // get action request
     private String getAction(String action, String partyId) {
-        HttpUrl req_url = HttpUrl.parse(GROUPIFY_SERVICE_URL).newBuilder()
+        HttpUrl req_url = HttpUrl.parse(GROUPIFY_SERVICE_URL + "/action").newBuilder()
                 .addQueryParameter("action", action)
                 .addQueryParameter("party", partyId)
                 .build();
@@ -119,6 +119,21 @@ public class GroupifyConsole {
             return response.body().string();
         } catch (IOException e) {
             System.err.println("error sending request: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // join party request
+    private String getJoinParty(String partyId) {
+        HttpUrl reqUrl = HttpUrl.parse(GROUPIFY_SERVICE_URL + "/join").newBuilder()
+                .addQueryParameter("party", partyId)
+                .build();
+        Request request = new Request.Builder().url(reqUrl).build();
+        try (Response r = client.newCall(request).execute()) {
+            return r.body().string();
+        } catch (IOException e) {
+            System.err.println("error sending join party request: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
