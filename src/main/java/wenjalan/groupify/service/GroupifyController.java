@@ -3,6 +3,8 @@ package wenjalan.groupify.service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import wenjalan.groupify.service.model.Party;
+import wenjalan.groupify.service.model.GroupifyUser;
 
 import java.net.URI;
 
@@ -17,7 +19,7 @@ public class GroupifyController {
         CREATE {
             // returns: an authorization URI for the user to click on
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 GroupifyService service = GroupifyService.getInstance();
                 URI uri = service.createParty();
                 return uri.toString();
@@ -27,7 +29,7 @@ public class GroupifyController {
         // add a guest to the party
         ADD {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 GroupifyService service = GroupifyService.getInstance();
                 URI uri = service.addUserToParty(party);
                 return uri.toString();
@@ -37,7 +39,7 @@ public class GroupifyController {
         // clear all guests from the party
         CLEAR {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 GroupifyService service = GroupifyService.getInstance();
                 service.clearParty(party);
                 return "success";
@@ -47,7 +49,7 @@ public class GroupifyController {
         // get information about a user in the party
         INFO {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 // string together each user's information
                 StringBuilder sb = new StringBuilder();
                 for (GroupifyUser user : party.getUsers()) {
@@ -60,7 +62,7 @@ public class GroupifyController {
         // makes the playlist on the host's account
         MAKE {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 return "" + GroupifyService.getInstance().makePlaylist(party);
             }
         },
@@ -68,7 +70,7 @@ public class GroupifyController {
         // purge Groupify playlists from the host's account
         PURGE {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 GroupifyService service = GroupifyService.getInstance();
                 // get the host of this party
                 GroupifyUser host = party.getHost();
@@ -87,7 +89,7 @@ public class GroupifyController {
         // stops the session with the API
         STOP {
             @Override
-            String run(GroupifyParty party) {
+            String run(Party party) {
                 // get the party manager
                 PartyManager manager = PartyManager.getInstance();
                 // deregister this party
@@ -98,7 +100,7 @@ public class GroupifyController {
         };
 
         // methods
-        abstract String run(GroupifyParty party);
+        abstract String run(Party party);
 
     }
 
@@ -146,7 +148,7 @@ public class GroupifyController {
             // if the action requested matches a command
             if (action.equalsIgnoreCase(a.name())) {
                 // run it and return its response
-                GroupifyParty p = getParty(party);
+                Party p = getParty(party);
 
                 // if no party was found and the action wasn't a create
                 if (p == null && !action.equalsIgnoreCase("create")) {
@@ -172,7 +174,7 @@ public class GroupifyController {
         }
 
         // find the party
-        GroupifyParty p = getParty(party);
+        Party p = getParty(party);
 
         // if none found, complain
         if (p == null) {
@@ -185,7 +187,7 @@ public class GroupifyController {
     }
 
     // returns a party given a String id
-    private static GroupifyParty getParty(String id) {
+    private static Party getParty(String id) {
         return PartyManager.getInstance().getParty(id);
     }
 

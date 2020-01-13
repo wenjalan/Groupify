@@ -6,7 +6,74 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="" />
+    <list default="true" id="0d8d1c70-a7bd-4cb9-93c5-c6c19cd2d777" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetArtistBuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetTrackBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/console/GroupifyConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/console/GroupifyConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController$Action.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyParty$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyParty$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyParty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyUser$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyUser$Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/GroupifyUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/PartyManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/PartyManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/PlaylistGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/wenjalan/groupify/service/PlaylistGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/console/GroupifyConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/AuthenticationListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController$Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyParty$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyParty$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyParty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyService$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyUser$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyUser$Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/GroupifyUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/PartyManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/wenjalan/groupify/service/PlaylistGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyParty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/model/Party.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/model/GroupifyUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PartyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PartyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -24,12 +91,25 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Groupify" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Groupify" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Groupify" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -40,13 +120,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+            <state relative-caret-position="136">
+              <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#658#659#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,13 +137,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="55" column="78" selection-start-line="55" selection-start-column="78" selection-end-line="55" selection-end-column="78" />
+            <state relative-caret-position="952">
+              <caret line="56" column="75" selection-start-line="56" selection-start-column="75" selection-end-line="56" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5108#5109#0" expanded="true" />
                 <element signature="e#5154#5155#0" expanded="true" />
                 <element signature="method#removeUserFromParty#0;class#GroupifyService#0" />
                 <element signature="method#stop#0;class#GroupifyService#0" />
+                <element signature="e#12824#12825#0" expanded="true" />
                 <element signature="e#12860#12861#0" expanded="true" />
               </folding>
             </state>
@@ -69,30 +153,81 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java">
+        <entry file="file://$PROJECT_DIR$/.gitattributes">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="57" column="18" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="18" />
+            <state relative-caret-position="29">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
               <folding>
-                <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
-                <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
-                <element signature="method#getSharedTopGenresSongs#0;class#PlaylistGenerator#0" />
-                <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
-                <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
-                <element signature="method#unsimplify#0;class#PlaylistGenerator#0" />
-                <element signature="method#unsimplify#1;class#PlaylistGenerator#0" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1304">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="17">
+              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetTrackBuffer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1942#1943#0" expanded="true" />
+                <element signature="e#2039#2040#0" expanded="true" />
+                <element signature="e#2182#2183#0" expanded="true" />
+                <element signature="e#2285#2286#0" expanded="true" />
+                <element signature="e#2606#2607#0" expanded="true" />
+                <element signature="e#2736#2737#0" expanded="true" />
+                <element signature="e#2917#2918#0" expanded="true" />
+                <element signature="e#3013#3014#0" expanded="true" />
+                <element signature="e#3134#3135#0" expanded="true" />
+                <element signature="e#3233#3234#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="935">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
+              <folding>
+                <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
+                <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
+                <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
+                <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/model/GroupifyUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1046">
+              <caret line="102" column="67" selection-start-line="102" selection-start-column="67" selection-end-line="102" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#authenticate#0;class#Factory#0;class#GroupifyUser#0" />
+                <element signature="method#loadPlaylists#0;class#Factory#0;class#GroupifyUser#0" />
+                <element signature="method#generateTopGenres#0;class#Factory#0;class#GroupifyUser#0" />
+                <element signature="method#GroupifyUser#0;class#GroupifyUser#0" />
+                <element signature="method#printInfo#0;class#GroupifyUser#0" />
+                <element signature="method#getInfo#0;class#GroupifyUser#0" />
               </folding>
             </state>
           </provider>
@@ -101,25 +236,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="167" column="77" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#Action#0;class#GroupifyController#0" />
-                <element signature="method#callback#0;class#GroupifyController#0" />
-                <element signature="method#action#0;class#GroupifyController#0" />
-                <element signature="e#6353#6354#0" expanded="true" />
-                <element signature="e#6415#6416#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -130,8 +248,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -180,21 +298,23 @@
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyParty.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PartyManager.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/groupify.properties" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetArtistBuffer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/groupify.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetTrackBuffer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1048" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -204,7 +324,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -257,6 +376,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,19 +434,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Groupify [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="GroupifyService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Groupify.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="wenjalan.groupify.service.GroupifyService" />
       <option name="PROGRAM_PARAMETERS" value="groupify.properties" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="MakeProject" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.GroupifyConsole" />
+      <item itemvalue="Gradle.Groupify [build]" />
       <item itemvalue="Spring Boot.GroupifyService" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Groupify [build]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -357,11 +502,12 @@
       <workItem from="1578271222661" duration="1215000" />
       <workItem from="1578272477069" duration="1404000" />
       <workItem from="1578777280988" duration="3975000" />
+      <workItem from="1578885226283" duration="3369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95129000" />
+    <option name="totallyTimeSpent" value="98498000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,7 +522,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22214764" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22550336" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -385,8 +531,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897383" />
-      <window_info anchor="bottom" x="290" y="220" width="767" height="381" id="Run" order="2" type="WINDOWED" weight="0.7588235" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32794118" />
+      <window_info anchor="bottom" x="1" y="30" width="767" height="793" id="Run" order="2" type="WINDOWED" weight="0.7588235" />
       <window_info anchor="bottom" x="1" y="30" width="767" height="793" id="Debug" order="3" type="WINDOWED" weight="0.41911766" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,7 +546,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" />
-      <window_info anchor="bottom" x="77" y="336" width="767" height="381" id="Run Dashboard" maximized="true" order="16" type="WINDOWED" weight="0.78088236" />
+      <window_info anchor="bottom" x="109" y="323" width="767" height="381" id="Run Dashboard" order="16" visible="true" weight="0.60882354" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -459,10 +605,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java</url>
-          <line>73</line>
+          <url>file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetTrackBuffer.java</url>
+          <line>56</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -547,17 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyParty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="48" column="63" lean-forward="true" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
-          <folding>
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.2.1.RELEASE/3668f11c423b5fa6d442a0282151895dc81959ca/spring-webmvc-5.2.1.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -593,35 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="294" column="28" lean-forward="true" selection-start-line="294" selection-start-column="28" selection-end-line="294" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#authenticate#0;class#Factory#0;class#GroupifyUser#0" />
-            <element signature="method#loadPlaylists#0;class#Factory#0;class#GroupifyUser#0" />
-            <element signature="method#generateTopGenres#0;class#Factory#0;class#GroupifyUser#0" />
-            <element signature="method#GroupifyUser#0;class#GroupifyUser#0" />
-            <element signature="method#printInfo#0;class#GroupifyUser#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.2.1.RELEASE/5247d73874757aa411626d2bf156360768005dc5/spring-web-5.2.1.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="189" selection-start-line="189" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PartyManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -634,7 +740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
+        <state relative-caret-position="510">
           <caret line="167" column="77" selection-start-line="167" selection-start-column="77" selection-end-line="167" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -647,59 +753,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/model/Party.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetArtistBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="57" column="18" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="18" />
+        <state relative-caret-position="-1166">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
-            <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
-            <element signature="method#getSharedTopGenresSongs#0;class#PlaylistGenerator#0" />
-            <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
-            <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
-            <element signature="method#unsimplify#0;class#PlaylistGenerator#0" />
-            <element signature="method#unsimplify#1;class#PlaylistGenerator#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1856#1857#0" expanded="true" />
+            <element signature="e#1883#1884#0" expanded="true" />
+            <element signature="e#1982#1983#0" expanded="true" />
+            <element signature="e#2026#2027#0" expanded="true" />
+            <element signature="e#2099#2100#0" expanded="true" />
+            <element signature="e#2129#2130#0" expanded="true" />
+            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#2450#2451#0" expanded="true" />
+            <element signature="e#2541#2542#0" expanded="true" />
+            <element signature="e#2580#2581#0" expanded="true" />
+            <element signature="e#2705#2706#0" expanded="true" />
+            <element signature="e#2761#2762#0" expanded="true" />
+            <element signature="e#2824#2825#0" expanded="true" />
+            <element signature="e#2857#2858#0" expanded="true" />
+            <element signature="e#2935#2936#0" expanded="true" />
+            <element signature="e#2978#2979#0" expanded="true" />
+            <element signature="e#3040#3041#0" expanded="true" />
+            <element signature="e#3077#3078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/model/GroupifyUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1046">
+          <caret line="102" column="67" selection-start-line="102" selection-start-column="67" selection-end-line="102" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#authenticate#0;class#Factory#0;class#GroupifyUser#0" />
+            <element signature="method#loadPlaylists#0;class#Factory#0;class#GroupifyUser#0" />
+            <element signature="method#generateTopGenres#0;class#Factory#0;class#GroupifyUser#0" />
+            <element signature="method#GroupifyUser#0;class#GroupifyUser#0" />
+            <element signature="method#printInfo#0;class#GroupifyUser#0" />
+            <element signature="method#getInfo#0;class#GroupifyUser#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/groupify.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="75" selection-start-line="56" selection-start-column="75" selection-end-line="56" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5108#5109#0" expanded="true" />
+            <element signature="e#5154#5155#0" expanded="true" />
+            <element signature="method#removeUserFromParty#0;class#GroupifyService#0" />
+            <element signature="method#stop#0;class#GroupifyService#0" />
+            <element signature="e#12824#12825#0" expanded="true" />
+            <element signature="e#12860#12861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1304">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/GroupifyService.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
-          <caret line="55" column="78" selection-start-line="55" selection-start-column="78" selection-end-line="55" selection-end-column="78" />
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5154#5155#0" expanded="true" />
-            <element signature="method#removeUserFromParty#0;class#GroupifyService#0" />
-            <element signature="method#stop#0;class#GroupifyService#0" />
-            <element signature="e#12860#12861#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/console/GroupifyConsole.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.2.1.RELEASE/5247d73874757aa411626d2bf156360768005dc5/spring-web-5.2.1.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+        <state relative-caret-position="112">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/util/GetTrackBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#2039#2040#0" expanded="true" />
+            <element signature="e#2182#2183#0" expanded="true" />
+            <element signature="e#2285#2286#0" expanded="true" />
+            <element signature="e#2606#2607#0" expanded="true" />
+            <element signature="e#2736#2737#0" expanded="true" />
+            <element signature="e#2917#2918#0" expanded="true" />
+            <element signature="e#3013#3014#0" expanded="true" />
+            <element signature="e#3134#3135#0" expanded="true" />
+            <element signature="e#3233#3234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/wenjalan/groupify/service/PlaylistGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="method#generatePlaylistDescription#0;class#PlaylistGenerator#0" />
+            <element signature="method#getSharedTopSongs#0;class#PlaylistGenerator#0" />
+            <element signature="method#getIdsAsString#0;class#PlaylistGenerator#0" />
+            <element signature="method#getIdsAsString#1;class#PlaylistGenerator#0" />
           </folding>
         </state>
       </provider>
