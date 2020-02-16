@@ -54,7 +54,7 @@ public class GroupifyService {
     // starts the Groupify Service
     public static void start(GroupifyConfiguration config, String[] pArgs) {
         // announce
-        System.out.println("Starting GroupifyService Prototype 4 (1/12/2020) ...");
+        System.out.println("Starting GroupifyService Prototype 5 (2/15/2020) ...");
         configuration = config;
 
         // see if we're in verbose mode

@@ -1,5 +1,6 @@
 package wenjalan.groupify.service;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -134,6 +135,7 @@ public class GroupifyController {
     }
 
     // receives an Action request
+    @CrossOrigin
     @RequestMapping(value = "api/action")
     public String action(
             @RequestParam(value = "action", defaultValue = "") String action,
@@ -165,6 +167,7 @@ public class GroupifyController {
     }
 
     // receives a Join party request
+    @CrossOrigin
     @RequestMapping(value = "api/join")
     public String join(
             @RequestParam(value = "party", defaultValue = "") String party) {
