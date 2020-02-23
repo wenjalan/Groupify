@@ -59,6 +59,9 @@ public class Party {
     // the unique ID of this party
     private final String id;
 
+    // when this party was crated
+    private final long creationTimestamp;
+
     // constructor
     // host: the host user
     // id: the id to give this party
@@ -66,6 +69,7 @@ public class Party {
         this.host = host;
         this.users = new LinkedList<>();
         this.id = id;
+        this.creationTimestamp = System.currentTimeMillis();
         PartyManager.getInstance().register(this);
 
         // add the host to their own party
@@ -100,6 +104,11 @@ public class Party {
     // removes an id from the registry
     public static void unregisterId(String id) {
         registeredIds.remove(id);
+    }
+
+    // returns the time this party was created in millis
+    public long getCreationTimestamp() {
+        return this.creationTimestamp;
     }
 
     // unregisters this party, removing its id from the registry and removing all users

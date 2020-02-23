@@ -54,7 +54,7 @@ public class GroupifyService {
     // starts the Groupify Service
     public static void start(GroupifyConfiguration config, String[] pArgs) {
         // announce
-        System.out.println("Starting GroupifyService Prototype 5 (2/15/2020) ...");
+        System.out.println("Starting GroupifyService Prototype 5 (2/22/2020) ...");
         configuration = config;
 
         // see if we're in verbose mode
@@ -297,7 +297,7 @@ public class GroupifyService {
 
     // creates the playlist on the host user's account
     // post: a new Groupify Playlist on the host user's account
-    public boolean makePlaylist(Party party) {
+    public String makePlaylist(Party party) {
         // get a Playlist Generator for this Party
         PlaylistGenerator generator = new PlaylistGenerator(party, false);
 
@@ -306,13 +306,14 @@ public class GroupifyService {
 
         // return if it worked or not
         if (playlist == null) {
-            return false;
+            return null;
         }
         else {
             if (configuration.VERBOSE) {
                 System.out.println("[V] Playlist for party " + party.getId() + " created successfully");
             }
-            return true;
+            // return the "spotify" external url I guess
+            return playlist.getExternalUrls().getExternalUrls().get("spotify");
         }
     }
 

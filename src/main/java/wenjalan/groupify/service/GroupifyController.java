@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import wenjalan.groupify.service.model.Party;
 import wenjalan.groupify.service.model.GroupifyUser;
+import wenjalan.groupify.service.model.webmodel.AddUserResponseModel;
+import wenjalan.groupify.service.model.webmodel.CreatePartyResponseModel;
+import wenjalan.groupify.service.model.webmodel.PartyWebModel;
+import wenjalan.groupify.service.model.webmodel.PlaylistCreatedResponseModel;
 
 import java.net.URI;
 
@@ -187,6 +191,54 @@ public class GroupifyController {
         // otherwise, return an invite link
         String url = Action.ADD.run(p);
         return url;
+    }
+
+    // returns a PartyWebModel JSON given an id
+    @CrossOrigin
+    @RequestMapping(value = "api/party")
+    public PartyWebModel party(
+            @RequestParam(value = "id", defaultValue = "") String id) {
+        // get the party with that id
+        Party p = getParty(id);
+        if (p == null) {
+            throw new IllegalArgumentException("no party with id " + id + " found");
+        }
+
+        // return the JSON representation of that party
+        return new PartyWebModel(p);
+    }
+
+    // creates a new party
+    @CrossOrigin
+    @RequestMapping(value = "api/create")
+    public CreatePartyResponseModel create() {
+        return new CreatePartyResponseModel(Action.CREATE.run(null));
+    }
+
+    // adds a user to a party
+    @CrossOrigin
+    @RequestMapping(value = "api/add")
+    public AddUserResponseModel add(@RequestParam(value = "party", defaultValue = "") String partyId) {
+        Party p = getParty(partyId);
+        if (p == null) {
+            throw new IllegalArgumentException("no party with id " + partyId + " found");
+        }
+        return new AddUserResponseModel(Action.ADD.run(p));
+    }
+
+    // makes the playlist given a party
+    @CrossOrigin
+    @RequestMapping(value = "api/make")
+    public PlaylistCreatedResponseModel make(
+            @RequestParam(value = "party", defaultValue = "") String partyId){
+        // get party
+        Party p = getParty(partyId);
+        if (p == null) {
+            throw new IllegalArgumentException("no party with id " + partyId + " found");
+        }
+
+        // return JSON response
+        return new PlaylistCreatedResponseModel(Action.MAKE.run(p));
     }
 
     // returns a party given a String id
