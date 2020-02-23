@@ -1,6 +1,9 @@
 # Groupify
 A Spotify app that makes playlists based off you and your friends' tastes. No more squabbling with collaborative playlists or wrestling for the aux cord.  
 
+# Groupify Web Client
+View the Web Client App at https://github.com/wenjalan/Groupify-Web  
+
 # Development Roadmap  
 1. Prototyping Stage
 2. Website Launch (current stage)  
