@@ -5,6 +5,9 @@ import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.*;
 import com.wrapper.spotify.requests.data.browse.GetRecommendationsRequest;
+import wenjalan.groupify.service.model.Party;
+import wenjalan.groupify.service.model.GroupifyUser;
+import wenjalan.groupify.service.util.GetTrackBuffer;
 
 import java.io.IOException;
 import java.util.*;
@@ -36,7 +39,7 @@ public class PlaylistGenerator {
     // debug constructor
     // spotify: the (authenticated) API to create the playlist with
     // users: the users the playlist is to be based on
-    public PlaylistGenerator(GroupifyParty party, boolean debugMode) {
+    public PlaylistGenerator(Party party, boolean debugMode) {
         this.spotify = party.getHost().getApiInstance();
         this.users = party.getUsers();
         this.DEBUG_MODE = debugMode;
@@ -326,48 +329,45 @@ public class PlaylistGenerator {
         // get everyone's top songs
         Map<String, Track> topSongs = getTopSongs(users);
 
-        // for each song, if an artist has a genre that has <threshold> or more occurrences, add it to the list
-        try {
-            Set<String> added = new HashSet<>();
-            for (String trackId : topSongs.keySet()) {
-                // if we've already added this track skip it
-                if (added.contains(trackId)) {
+        // get everyone's top artists
+        Map<String, Artist> topArtists = getTopArtists(users);
+
+        // find tracks that have <threshold> or more users sharing that genre
+        Set<String> added = new HashSet<>();
+        for (String trackId : topSongs.keySet()) {
+            // if we've already added this track skip it
+            if (added.contains(trackId)) {
+                continue;
+            }
+
+            // get the artists of this track
+            Track t = topSongs.get(trackId);
+            ArtistSimplified[] artistsSimplified = t.getArtists();
+            // get the real artist objects
+            List<Artist> artists = new ArrayList<>();
+            for (ArtistSimplified as : artistsSimplified) {
+                artists.add(topArtists.get(as.getId()));
+            }
+
+            // for each artist
+            for (Artist artist : artists) {
+                // if the artist isn't null (why can an artist be null?)
+                if (artist == null) {
                     continue;
                 }
-                Track t = topSongs.get(trackId);
-                ArtistSimplified[] artistsSimplified = t.getArtists();
-                // get the real artist objects
-                List<Artist> artists;
-                // more than 1 artist
-                if (artistsSimplified.length > 1) {
-                     artists = unsimplify(artistsSimplified);
-                }
-                // only 1 artist
-                else {
-                    artists = Arrays.asList(spotify.getArtist(artistsSimplified[0].getId()).build().execute());
-                }
-                for (Artist artist : artists) {
-                    // if the artist isn't null (why can an artist be null?)
-                    if (artist == null) {
-                        continue;
-                    }
-                    String[] genres = artist.getGenres();
-                    // for each genre
-                    for (String genre : genres) {
-                        // if the genre occurs more than threshold times, add it and break
-                        if (genreOccurrences.containsKey(genre) && genreOccurrences.get(genre) >= threshold) {
-                            songs.add(t);
-                            added.add(trackId);
-                            break;
-                        }
+                String[] genres = artist.getGenres();
+                // for each genre
+                for (String genre : genres) {
+                    // if the genre occurs more than threshold times, add it and break
+                    if (genreOccurrences.containsKey(genre) && genreOccurrences.get(genre) >= threshold) {
+                        songs.add(t);
+                        added.add(trackId);
+                        break;
                     }
                 }
             }
-        } catch (SpotifyWebApiException | IOException e) {
-            System.err.println("!!! playlist generation error: getSharedTopGenreSongs encountered an issue: " + e.getMessage());
-            e.printStackTrace();
-            return Collections.emptyList();
         }
+
         // return the tracks
         return songs;
     }
@@ -411,7 +411,9 @@ public class PlaylistGenerator {
         try {
             // add all recommended songs
             TrackSimplified[] recommendations = request.execute().getTracks();
-            List<Track> recTracks = unsimplify(recommendations);
+            GetTrackBuffer buffer = new GetTrackBuffer(spotify);
+            buffer.addAll(recommendations);
+            List<Track> recTracks = buffer.flush();
             songs.addAll(recTracks);
         } catch (SpotifyWebApiException | IOException e) {
             System.err.println("!!! error getting recommendations: " + e.getMessage());
@@ -439,6 +441,22 @@ public class PlaylistGenerator {
             }
         }
         return allSongs;
+    }
+
+    // returns a Map of top artist ids to their Artist objects
+    private Map<String, Artist> getTopArtists(List<GroupifyUser> users) {
+        Map<String, Artist> allArtists = new HashMap<>();
+        // for each user, get their top artists and map them
+        for (GroupifyUser user : users) {
+            for (Artist a : user.getTopArtists()) {
+                String artistId = a.getId();
+                if (!allArtists.keySet().contains(artistId)) {
+                    allArtists.put(artistId, a);
+                }
+            }
+        }
+        // return the map
+        return allArtists;
     }
 
     // returns an array of URIs given a list of tracks
@@ -489,34 +507,6 @@ public class PlaylistGenerator {
             return ids.substring(0, ids.length() - 2); // cut off the end comma
             // return ids;
         }
-    }
-
-    // returns a list of Tracks given an array of TrackSimplifieds
-    private List<Track> unsimplify(TrackSimplified[] simplifieds) throws SpotifyWebApiException, IOException {
-        List<Track> tracks = new ArrayList<>();
-        for (int i = 0; i < simplifieds.length; i += 50) {
-            String ids = String.join(",", Arrays.stream(
-                    Arrays.copyOfRange(simplifieds, i, Math.min(i + 50, simplifieds.length)))
-                    .map(TrackSimplified::getId)
-                    .collect(Collectors.toList()));
-            Track[] retrieved = spotify.getSeveralTracks(ids).build().execute();
-            tracks.addAll(Arrays.asList(retrieved));
-        }
-        return tracks;
-    }
-
-    // returns a list of Artists given an array of ArtistSimplifieds
-    private List<Artist> unsimplify(ArtistSimplified[] simplifieds) throws SpotifyWebApiException, IOException {
-        List<Artist> artists = new ArrayList<>();
-        for (int i = 0; i < simplifieds.length; i += 50) {
-            String ids = String.join(",", Arrays.stream(
-               Arrays.copyOfRange(simplifieds, i, Math.min(i + 50, simplifieds.length)))
-               .map(ArtistSimplified::getId)
-               .collect(Collectors.toList()));
-            Artist[] retrieved = spotify.getSeveralArtists(ids).build().execute();
-            artists.addAll(Arrays.asList(retrieved));
-        }
-        return artists;
     }
 
 }

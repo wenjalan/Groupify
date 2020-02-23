@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class GroupifyConsole {
 
     // Groupify Service url local url
-    public static final String GROUPIFY_SERVICE_URL = "http://24.16.66.0:1001/api";
+    public static final String GROUPIFY_SERVICE_URL = "http://localhost:1000/api";
 
     // JSON MediaType
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -28,7 +28,7 @@ public class GroupifyConsole {
     // constructor
     public GroupifyConsole() {
         // announce
-        System.out.println("Starting GroupifyConsole (1/11/2020)");
+        System.out.println("Starting GroupifyConsole Prototype 4 (1/12/2020)");
 
         // new Scanner for console input
         Scanner console = new Scanner(System.in);

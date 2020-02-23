@@ -4,11 +4,12 @@ import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
-import org.apache.http.auth.AUTH;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import wenjalan.groupify.service.model.Party;
+import wenjalan.groupify.service.model.GroupifyUser;
 
 import java.io.IOException;
 import java.net.URI;
@@ -53,7 +54,7 @@ public class GroupifyService {
     // starts the Groupify Service
     public static void start(GroupifyConfiguration config, String[] pArgs) {
         // announce
-        System.out.println("Starting Groupify prototype 3 (1/11/2020 : build 2) ...");
+        System.out.println("Starting GroupifyService Prototype 5 (2/22/2020) ...");
         configuration = config;
 
         // see if we're in verbose mode
@@ -85,7 +86,7 @@ public class GroupifyService {
                 .build();
 
         // start building a new Party
-        final GroupifyParty.Builder partyBuilder = new GroupifyParty.Builder();
+        final Party.Builder partyBuilder = new Party.Builder();
         final String partyId = partyBuilder.getId();
         final String startState = partyId + ":" + UUID.randomUUID().toString(); // random uuid to check against
 
@@ -110,7 +111,7 @@ public class GroupifyService {
 
                 // once authenticated, get the user and form a new party
                 GroupifyUser host = GroupifyUser.Factory.createUser(code, true);
-                GroupifyParty p = partyBuilder.build(host);
+                Party p = partyBuilder.build(host);
 
                 // detach this listener
                 AUTHENTICATION_LISTENERS.remove(this);
@@ -147,7 +148,7 @@ public class GroupifyService {
     // post (before authentication): a valid authentication URI for which the guest is to log in with
     // post (after authentication): the Party object is updated with the associated guest
     // returns: an authentication URI for the guest to log in with
-    public URI addUserToParty(final GroupifyParty party) {
+    public URI addUserToParty(final Party party) {
         // get a Guest Spotify API instance
         SpotifyApi api = new SpotifyApi.Builder()
                 .setClientId(configuration.GUEST_ID)
@@ -215,7 +216,7 @@ public class GroupifyService {
     // post: if a user with the given user id is found, they will be removed from the party
     // returns: whether or not the operation was successful
     // todo: make an api mapping in GroupifyController for this method: REMOVE
-    public boolean removeUserFromParty(GroupifyParty party, String userId) {
+    public boolean removeUserFromParty(Party party, String userId) {
         // find the user to remove
         for (GroupifyUser user : party.getUsers()) {
             // if this is the user
@@ -244,7 +245,7 @@ public class GroupifyService {
 
     // removes all users from the current party, except for the host
     // post: the only user in the party is the host
-    public void clearParty(GroupifyParty party) {
+    public void clearParty(Party party) {
         // remove each user, unless they're the host
         for (GroupifyUser user : party.getUsers()) {
             // if they're not the host, remove them
@@ -296,7 +297,7 @@ public class GroupifyService {
 
     // creates the playlist on the host user's account
     // post: a new Groupify Playlist on the host user's account
-    public boolean makePlaylist(GroupifyParty party) {
+    public String makePlaylist(Party party) {
         // get a Playlist Generator for this Party
         PlaylistGenerator generator = new PlaylistGenerator(party, false);
 
@@ -305,13 +306,14 @@ public class GroupifyService {
 
         // return if it worked or not
         if (playlist == null) {
-            return false;
+            return null;
         }
         else {
             if (configuration.VERBOSE) {
                 System.out.println("[V] Playlist for party " + party.getId() + " created successfully");
             }
-            return true;
+            // return the "spotify" external url I guess
+            return playlist.getExternalUrls().getExternalUrls().get("spotify");
         }
     }
 
