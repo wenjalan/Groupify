@@ -10,10 +10,10 @@ import java.util.Map;
 public class PartyManager {
 
     // the amount of time a Party is valid for: 8 hours
-    public static final int PARTY_MAX_AGE = 8 * 60 * 1000;
+    public static final int PARTY_MAX_AGE = 8 * 60 *  60 * 1000;
 
     // the amount of time the Reaper will go looking for parties: 5 minute intervals
-    public static final int REAPER_POLL = 5 * 1000;
+    public static final int REAPER_POLL = 5 * 60 * 1000;
 
     // the instance of PartyManager
     private static PartyManager instance = null;
