@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import wenjalan.groupify.service.model.Party;
 import wenjalan.groupify.service.model.GroupifyUser;
 import wenjalan.groupify.service.util.PlaylistConfiguration;
@@ -23,6 +24,7 @@ import static wenjalan.groupify.service.GroupifyConfiguration.HOST_SCOPES;
 
 // the Groupify service, handles all calls going in and out of the API
 @SpringBootApplication
+@PropertySource("application.yml")
 public class GroupifyService {
 
     // the GroupifyService instance
@@ -30,6 +32,9 @@ public class GroupifyService {
 
     // the list of Authentication Listeners
     public static final List<AuthenticationListener> AUTHENTICATION_LISTENERS = new LinkedList<>();
+
+    // the actual Spring Application
+    private static SpringApplication springApplication;
 
     // the Spring ApplicationContext
     private static ApplicationContext applicationContext;
@@ -71,7 +76,10 @@ public class GroupifyService {
         GroupifyUser.Factory.setConfiguration(configuration);
 
         // start Spring services
-        applicationContext = SpringApplication.run(GroupifyService.class, pArgs);
+        springApplication = new SpringApplication(GroupifyService.class);
+        // enable SSL
+        springApplication.setAdditionalProfiles("ssl");
+        applicationContext = springApplication.run(pArgs);
     }
 
     // creates a new Party
