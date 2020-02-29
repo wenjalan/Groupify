@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import wenjalan.groupify.service.model.Party;
 import wenjalan.groupify.service.model.GroupifyUser;
+import wenjalan.groupify.service.util.PlaylistConfiguration;
 
 import java.io.IOException;
 import java.net.URI;
@@ -297,12 +298,12 @@ public class GroupifyService {
 
     // creates the playlist on the host user's account
     // post: a new Groupify Playlist on the host user's account
-    public String makePlaylist(Party party) {
+    public String makePlaylist(Party party, PlaylistConfiguration config) {
         // get a Playlist Generator for this Party
         PlaylistGenerator generator = new PlaylistGenerator(party, false);
 
         // make the playlist
-        Playlist playlist = generator.createPlaylist();
+        Playlist playlist = generator.createPlaylist(config);
 
         // return if it worked or not
         if (playlist == null) {

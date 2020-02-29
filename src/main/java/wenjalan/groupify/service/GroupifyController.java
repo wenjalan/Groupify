@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import wenjalan.groupify.service.model.Party;
 import wenjalan.groupify.service.model.GroupifyUser;
 import wenjalan.groupify.service.model.webmodel.*;
+import wenjalan.groupify.service.util.PlaylistConfiguration;
 
 import java.net.URI;
 
@@ -91,16 +92,28 @@ public class GroupifyController {
     @RequestMapping(value = "api/make")
     public PlaylistCreatedResponseModel make(
             @RequestParam(value = "party", defaultValue = "") String partyId,
-            @RequestParam(value = "addRecommendations", defaultValue = "") String addRecommendations){
+            @RequestParam(value = "addRecommendations", defaultValue = "") String doRecommendations,
+            @RequestParam(value = "maxSize", defaultValue = "80") String maxSize,
+            @RequestParam(value = "strictness", defaultValue = "2") String strictness) {
         // get party
         Party p = getParty(partyId);
         if (p == null) {
             throw new IllegalArgumentException("no party with id " + partyId + " found");
         }
 
+        // create a configuration
+        PlaylistConfiguration.Builder builder = new PlaylistConfiguration.Builder();
+        boolean doRecs = Boolean.parseBoolean(doRecommendations);
+        int maxPlaylistSize = Integer.parseInt(maxSize);
+        int strictness_ = Integer.parseInt(strictness);
+        builder.doRecommendations(doRecs);
+        builder.playlistMaxSize(maxPlaylistSize);
+        builder.strictness(strictness_);
+        PlaylistConfiguration config = builder.build();
+
         // make the playlist
         GroupifyService g = GroupifyService.getInstance();
-        String url = g.makePlaylist(p);
+        String url = g.makePlaylist(p, config);
 
         // return JSON response
         return new PlaylistCreatedResponseModel(url);

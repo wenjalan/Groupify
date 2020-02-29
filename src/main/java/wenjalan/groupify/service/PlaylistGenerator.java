@@ -8,6 +8,7 @@ import com.wrapper.spotify.requests.data.browse.GetRecommendationsRequest;
 import wenjalan.groupify.service.model.Party;
 import wenjalan.groupify.service.model.GroupifyUser;
 import wenjalan.groupify.service.util.GetTrackBuffer;
+import wenjalan.groupify.service.util.PlaylistConfiguration;
 
 import java.io.IOException;
 import java.util.*;
@@ -24,14 +25,14 @@ public class PlaylistGenerator {
     // the Spotify API
     private SpotifyApi spotify;
 
-    // the threshold for track property sharing
-    public static final int THRESHOLD = 2;
-
-    // the minimum size of the playlist
-    public static final int MIN_PLAYLIST_SIZE = 100;
-
-    // the maximum size of the playlist
-    public static final int MAX_PLAYLIST_SIZE = 300;
+//    // the threshold for track property sharing
+//    public static final int THRESHOLD = 2;
+//
+//    // the minimum size of the playlist
+//    public static final int MIN_PLAYLIST_SIZE = 100;
+//
+//    // the maximum size of the playlist
+//    public static final int MAX_PLAYLIST_SIZE = 300;
 
     // the Set of Users to generate a playlist for
     private List<GroupifyUser> users;
@@ -55,52 +56,44 @@ public class PlaylistGenerator {
     // 5. a track is in a playlist of THRESHOLD or more users
     // TODO: future improvements
     // - let host user decide what genres the playlist should have
-    // last. recommended songs to bring the total up to the PLAYLIST_SIZE
-    public Playlist createPlaylist() {
+    public Playlist createPlaylist(PlaylistConfiguration config) {
         // announce
         // System.out.println("> generating playlist...");
-
         try {
             // get the host's id
             String hostId = spotify.getCurrentUsersProfile().build().execute().getId();
 
-            // create the playlist
-            Playlist playlist = this.spotify.createPlaylist(hostId, "Groupify Playlist")
-                    .collaborative(false)
-                    .description(generatePlaylistDescription())
-                    .build()
-                    .execute();
-            String playlistId = playlist.getId();
-            String playlistUrl = playlist.getHref();
-
             // the set of songs (there should be no duplicate songs)
             Set<Track> songs = new HashSet<>();
 
-            // 1. find top songs shared by THRESHOLD users
-            List<Track> sharedTopSongs = getSharedTopSongs(users, THRESHOLD);
+            // 1. find top songs shared by config.strictness users
+            List<Track> sharedTopSongs = getSharedTopSongs(users, config.strictness);
             songs.addAll(sharedTopSongs);
 
-            // 2. find top songs whose artist is a top artist of THRESHOLD users
-            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, THRESHOLD);
+            // 2. find top songs whose artist is a top artist of config.strictness users
+            List<Track> sharedArtistSongs = getSharedTopArtistsSongs(users, config.strictness);
             songs.addAll(sharedArtistSongs);
 
-            // 3. find top songs whose artist has genres shared by THRESHOLD users
-            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, THRESHOLD);
+            // 3. find top songs whose artist has genres shared by config.strictness users
+            List<Track> sharedGenreSongs = getSharedTopGenresSongs(users, config.strictness);
             songs.addAll(sharedGenreSongs);
 
-            // 4. fill in the rest of the playlist up to the min
-            int num = MIN_PLAYLIST_SIZE - songs.size();
-            List<Track> recommendations = null;
-
-            if (num > 0) {
-                recommendations = getRecommendations(songs, num);
-                songs.addAll(recommendations);
+            // 4. fill in the rest of the playlist up to the min if the config wants to
+            if (config.doRecommendations) {
+                int num = config.playlistSize - songs.size();
+                List<Track> recommendations = null;
+                if (num > 0) {
+                    recommendations = getRecommendations(songs, num);
+                    songs.addAll(recommendations);
+                    System.out.println(DEBUG_PREFIX + recommendations.size() + " song recommendations added:");
+                    recommendations.stream().map(Track::getName).forEach(x -> System.out.println(DEBUG_PREFIX + "\t" + x));
+                }
             }
 
             // debug logging
             if (DEBUG_MODE) {
                 // threshold
-                System.out.println(DEBUG_PREFIX + "current user shared trait threshold: " + THRESHOLD);
+                System.out.println(DEBUG_PREFIX + "current user shared trait threshold: " + config.strictness);
                 System.out.println();
 
                 // top songs
@@ -117,24 +110,14 @@ public class PlaylistGenerator {
                 System.out.println(DEBUG_PREFIX + sharedGenreSongs.size() + " shared top genre songs:");
                 sharedGenreSongs.stream().map(Track::getName).forEach(x -> System.out.println(DEBUG_PREFIX + "\t" + x));
                 System.out.println();
-
-                // recommended songs
-                if (recommendations != null) {
-                    System.out.println(DEBUG_PREFIX + recommendations.size() + " song recommendations added:");
-                    recommendations.stream().map(Track::getName).forEach(x -> System.out.println(DEBUG_PREFIX + "\t" + x));
-                }
-                else {
-                    System.out.println(DEBUG_PREFIX + " no song recommendations added");
-                }
-                System.out.println();
             }
 
             // get the uris
             List<String> uris = getUris(songs);
 
-            // cut the thing down to size
-            if (uris.size() > MAX_PLAYLIST_SIZE) {
-                uris = uris.subList(0, MAX_PLAYLIST_SIZE);
+            // if we have too many, cut it down
+            if (uris.size() > config.playlistSize) {
+                uris = uris.subList(0, config.playlistSize);
             }
 
             // debug logging
@@ -145,6 +128,14 @@ public class PlaylistGenerator {
                 }
             }
 
+            // create the playlist
+            Playlist playlist = this.spotify.createPlaylist(hostId, "Groupify Playlist")
+                    .collaborative(false)
+                    .description(generatePlaylistDescription())
+                    .build()
+                    .execute();
+            String playlistId = playlist.getId();
+
             // add the songs in batches of 100 or less
             for (int i = 0; i < uris.size(); i += 100) {
                 List<String> smallList = uris.subList(i, Math.min(i + 100, uris.size()));
@@ -154,10 +145,6 @@ public class PlaylistGenerator {
                 }
                 this.spotify.addTracksToPlaylist(playlistId, jsonArray).build().execute();
             }
-
-            // print to console
-            // System.out.println("> created Groupify playlist with id " + playlistId);
-            // System.out.println("> link: " + playlistUrl);
 
             // return the playlist
             return playlist;
