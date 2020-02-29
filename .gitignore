@@ -5,3 +5,5 @@
 /service
 /.gradle
 /gradle
+src/main/resources/keystore
+application.yml
