@@ -1,5 +1,5 @@
 *.properties
 /out
 /build
-/idea
+/.idea
 /service
