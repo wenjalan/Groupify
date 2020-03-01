@@ -1,4 +1,5 @@
-# Groupify http://bit.ly/groupifyapp
+# Groupify  
+## http://bit.ly/groupifyapp
 A Spotify app that makes playlists based off you and your friends' tastes. No more squabbling with collaborative playlists or wrestling for the aux cord.  
 
 ## Groupify Web Client
