@@ -1,4 +1,5 @@
 # Groupify
+App is live at http://34.238.247.248:8080/!  
 A Spotify app that makes playlists based off you and your friends' tastes. No more squabbling with collaborative playlists or wrestling for the aux cord.  
 
 ## Groupify Web Client
