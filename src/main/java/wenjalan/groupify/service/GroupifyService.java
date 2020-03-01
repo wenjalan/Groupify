@@ -24,7 +24,7 @@ import static wenjalan.groupify.service.GroupifyConfiguration.HOST_SCOPES;
 
 // the Groupify service, handles all calls going in and out of the API
 @SpringBootApplication
-@PropertySource("application.yml")
+// @PropertySource("ssl-application.yml")
 public class GroupifyService {
 
     // the GroupifyService instance
@@ -78,7 +78,7 @@ public class GroupifyService {
         // start Spring services
         springApplication = new SpringApplication(GroupifyService.class);
         // enable SSL
-        springApplication.setAdditionalProfiles("ssl");
+        // springApplication.setAdditionalProfiles("ssl");
         applicationContext = springApplication.run(pArgs);
     }
 

@@ -7,3 +7,5 @@
 /gradle
 src/main/resources/keystore
 application.yml
+ssl-application.yml
+src/main/resources/ssl-application.yml
